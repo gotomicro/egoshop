@@ -1,0 +1,34 @@
+package dao
+
+var (
+	PointLimit    *pointLimit
+	OrderExtend   *orderExtend
+	ComSpec       *comSpec
+	UserOpen      *userOpen
+	AccessToken   *accessToken
+	Order         *order
+	Com           *com
+	Address       *address
+	Attachment    *attachment
+	Image         *image
+	User          *user
+	ComSku        *comSku
+	Banner        *banner
+	OrderGoods    *orderGoods
+	AdminUser     *adminUser
+	Comment       *comment
+	ComRelateCate *comRelateCate
+	ComCate       *comCate
+	UserGoods     *userGoods
+	Cart          *cart
+	AddressType   *addressType
+	SigninLog     *signinLog
+	ComStore      *comStore
+	OrderLog      *orderLog
+	OrderPay      *orderPay
+	Freight       *freight
+	ComSpecValue  *comSpecValue
+	Signin        *signin
+	PointLog      *pointLog
+	ComImage      *comImage
+)
