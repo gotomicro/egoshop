@@ -3,6 +3,8 @@ egoshop是go语言实现的商城项目。前台使用uniapp，后台使用ant d
 
 ## 使用
 ```bash
+在自己的mysql里创建一个egoshop的数据库
+
 make local.createdb # 同步自己的数据库
 
 make go.api # 运行api的go程序
