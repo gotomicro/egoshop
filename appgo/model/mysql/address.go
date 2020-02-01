@@ -1,6 +1,7 @@
 package mysql
 
 import (
+	"github.com/goecology/muses/pkg/database/mysql"
 	"time"
 )
 
@@ -28,4 +29,11 @@ type Address struct {
 
 func (*Address) TableName() string {
 	return "address"
+}
+
+func (a *Address) WithTypeName() string {
+	var info AddressType
+	mysql.Caller("egoshop").Select("name").Where("id = ?", a.TypeId).Find(&info)
+	a.TypeName = info.Name
+	return info.Name
 }

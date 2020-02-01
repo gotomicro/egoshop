@@ -24,7 +24,7 @@ func List(c *gin.Context) {
 	output := make([]mysql.Address, 0)
 	for _, info := range list {
 		newInfo := &info
-		//newInfo.WithTypeName()
+		newInfo.WithTypeName()
 		output = append(output, *newInfo)
 	}
 	base.JSONWechatList(c, output, cnt, 100)
@@ -52,7 +52,7 @@ func Info(c *gin.Context) {
 		return
 	}
 	// 获取type name
-	//info.WithTypeName()
+	info.WithTypeName()
 	base.JSON(c, code.MsgOk, info)
 }
 
@@ -64,22 +64,6 @@ func Create(c *gin.Context) {
 	}
 
 	uid := mdw.WechatUid(c)
-
-	//area, err := dao.Area.Info(c, req.AreaId)
-	//if err != nil {
-	//	base.JSONErr(c, code.MsgErr, err)
-	//	return
-	//}
-	//city, err := dao.Area.Info(c, area.Pid)
-	//if err != nil {
-	//	base.JSONErr(c, code.MsgErr, err)
-	//	return
-	//}
-	//province, err := dao.Area.Info(c, city.Pid)
-	//if err != nil {
-	//	base.JSONErr(c, code.MsgErr, err)
-	//	return
-	//}
 
 	var err error
 	tx := mus.Db.Begin()
@@ -163,21 +147,6 @@ func Update(c *gin.Context) {
 
 	uid := mdw.WechatUid(c)
 
-	//area, err := dao.Area.Info(c, req.AreaId)
-	//if err != nil {
-	//	base.JSONErr(c, code.MsgErr, err)
-	//	return
-	//}
-	//city, err := dao.Area.Info(c, area.Pid)
-	//if err != nil {
-	//	base.JSONErr(c, code.MsgErr, err)
-	//	return
-	//}
-	//province, err := dao.Area.Info(c, city.Pid)
-	//if err != nil {
-	//	base.JSONErr(c, code.MsgErr, err)
-	//	return
-	//}
 	var err error
 	tx := mus.Db.Begin()
 	if req.IsDefault == 1 {

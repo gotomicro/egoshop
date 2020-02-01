@@ -49,7 +49,6 @@ func Init(cfgFile string) {
 		AppID:  conf.Conf.App.Wechat.AppID,
 		Secret: conf.Conf.App.Wechat.AppSecret,
 	}
-
 	// todo 这个包代码写的好蠢。后期fork后更改，用于gopay.Pay(charge)
 	client.InitWxMiniProgramClient(&client.WechatMiniProgramClient{
 		AppID:      conf.Conf.App.WechatPay.AppID,

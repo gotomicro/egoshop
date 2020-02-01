@@ -137,7 +137,6 @@ func payResult(c *gin.Context, req Req, uid int, payAmount float64, paySn string
 		charge.OpenID = userOpen.MiniOpenid
 		result, err = gopay.Pay(charge)
 		if err != nil {
-			fmt.Println("err" + err.Error())
 			codeStatus = code.PayWechatPayErr
 			return
 		}

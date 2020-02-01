@@ -1,12 +1,11 @@
 package mysql
 
 import (
+	"github.com/jinzhu/gorm"
+	"github.com/spf13/cast"
 	"log"
 	"strings"
 	"time"
-
-	"github.com/jinzhu/gorm"
-	"github.com/spf13/cast"
 )
 
 type (

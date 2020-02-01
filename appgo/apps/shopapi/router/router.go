@@ -53,9 +53,7 @@ func apiGrp(r *gin.Engine) {
 
 	usersGrp := apiGrp.Group("/users")
 	{
-		// gocn 功能
 		usersGrp.GET("/goods/list", apiuser.List) // 获取用户"关注"或"上传"所有商品
-		// 签到功能
 		usersGrp.POST("/signin", signin.Index)
 		usersGrp.POST("/star", apiuser.StarGoods)           // 关注商品
 		usersGrp.POST("/unstar", apiuser.UnstarGoods)       // 取消关注商品

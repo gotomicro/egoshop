@@ -2,10 +2,9 @@ package service
 
 import (
 	"github.com/aliyun/aliyun-oss-go-sdk/oss"
-	"github.com/goecology/egoshop/appgo/apps/shopapi/pkg/mus"
 	"github.com/goecology/egoshop/appgo/model/constx"
+	"github.com/goecology/muses/pkg/logger"
 	"github.com/satori/uuid"
-	"github.com/spf13/viper"
 	"go.uber.org/zap"
 	"strings"
 	"time"
@@ -16,38 +15,36 @@ var Oss *alioss
 type alioss struct {
 	*oss.Client
 	buckets map[string]*bucket
+	logger  *logger.Client
 }
 
 type bucket struct {
 	*oss.Bucket
 }
 
-const ()
-
 // https://help.aliyun.com/document_detail/31857.html
 // https://github.com/aliyun/aliyun-oss-go-sdk/blob/master/README-CN.md
-func InitOssCli() {
+func InitOssCli(endpoints, accessKeyId, accessKeySecret, bucketName string, logger *logger.Client) {
 	c, e := oss.New(
-		viper.GetString("oss.endpoint"),
-		viper.GetString("oss.accessKeyID"),
-		viper.GetString("oss.accessKeySecret"),
+		endpoints, accessKeyId, accessKeySecret,
 	)
 	if e != nil {
-		mus.Logger.Warn("oss fail", zap.Error(e))
+		logger.Warn("oss fail", zap.Error(e))
 		return
 	}
 	Oss = &alioss{
 		Client:  c,
+		logger:  logger,
 		buckets: make(map[string]*bucket),
 	}
 
-	Oss.newBucket(viper.GetString("oss.bucket"), viper.GetString("oss.bucket")) // 公共读，通过bucketUrl访问ojb，无过期时间
+	Oss.newBucket(bucketName, bucketName) // 公共读，通过bucketUrl访问ojb，无过期时间
 }
 
 func (o *alioss) newBucket(name string, bucketName string) {
 	b, e := Oss.Bucket(bucketName)
 	if e != nil {
-		mus.Logger.Warn("oss fail", zap.Error(e))
+		o.logger.Warn("oss fail", zap.Error(e))
 		return
 	}
 	o.buckets[name] = &bucket{b}
@@ -56,7 +53,7 @@ func (o *alioss) newBucket(name string, bucketName string) {
 func (o *alioss) Buckets() []oss.BucketProperties {
 	lsRes, e := Oss.ListBuckets()
 	if e != nil {
-		mus.Logger.Warn("oss fail", zap.Error(e))
+		o.logger.Warn("oss fail", zap.Error(e))
 		return nil
 	}
 	return lsRes.Buckets

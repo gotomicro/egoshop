@@ -42,8 +42,9 @@ type GoodsType struct {
 
 var GoodsTypeMap = map[int]string{
 	1: "is_pay",
-	2: "is_star",
-	3: "is_create",
-	4: "is_share",
-	5: "is_read",
+	2: "is_collect",
+	3: "is_star",
+	4: "is_create",
+	5: "is_share",
+	6: "is_read",
 }

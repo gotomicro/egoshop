@@ -2,6 +2,7 @@ package cart
 
 import (
 	"errors"
+	"github.com/goecology/egoshop/appgo/model/constx"
 	"time"
 
 	"github.com/goecology/egoshop/appgo/model/trans"
@@ -69,7 +70,7 @@ func Create(c *gin.Context) {
 	uid := mdw.WechatUid(c)
 
 	// 添加商品
-	if req.TypeId == 1 {
+	if req.TypeId == constx.TypeCom {
 		cartInfo, err, codeInt = addCom(c, req)
 		if err != nil {
 			base.JSONErr(c, codeInt, err)
@@ -150,7 +151,7 @@ func addCom(c *gin.Context, req ReqCreate) (cartInfo mysql.Cart, err error, code
 			UpdatedBy: uid,
 			ComSkuId:  req.ComSkuId,
 			Num:       req.Num,
-			TypeId:    2,
+			TypeId:    constx.TypeCom,
 		}
 		err = dao.Cart.Create(c, mus.Db, &cartInfo)
 	}

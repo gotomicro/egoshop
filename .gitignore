@@ -1,5 +1,5 @@
-./tool/createdb/createdb
-./tool/gencode/gencode
-./appgo/apps/shopadmin/bin
-./appgo/apps/shopapi/bin
+tool/createdb/createdb
+tool/gencode/gencode
+appgo/apps/shopadmin/bin
+appgo/apps/shopapi/bin
 .idea
