@@ -12,6 +12,14 @@ local.createdb:
 	cd $(GOPATH)/src/github.com/goecology/generator && make build
 	@cd $(GITHUB)/tool/createdb && go build && $(GITHUB)/tool/createdb/createdb -m "root:root@tcp(localhost:3306)"
 
+local.mockdb:
+	@cd $(GITHUB)/tool/mockdb && go build && $(GITHUB)/tool/mockdb/mockdb -m "root:root@tcp(localhost:$(PORT))" --endpoints="" --key="" --secret="" --bucket=""
+
+
+# 执行wechat
+wechat:
+	@cd $(GITHUB)/appuni && npm run dev:mp-weixin
+
 # 执行go指令
 go.api:
 	@cd $(GITHUB)/appgo/apps/shopapi && $(GITHUB)/tool/build.sh $(APIOUT) $(MUSES_SYSTEM) $(MUSES_SYSTEM) && $(APIOUT) start --local=false --config=conf/conf.toml
