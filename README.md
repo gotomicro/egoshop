@@ -2,7 +2,7 @@
 ## 1 介绍
 EGoShop是Go语言实现的商城项目。
 
-![logo](./docs/img/logo.jpg)
+![logo](./docs/img/logo_small.jpg)
 
 特性
 * 最新的技术： 前台使用uniapp，后台使用ant design，后端使用go。部署简单、使用方便。
