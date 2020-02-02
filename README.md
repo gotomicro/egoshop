@@ -32,9 +32,9 @@ make ant # 运行后台
 ## 3 体验
 * 小程序地址
 
-![logo](./docs/img/wechatmini.jpg)
+![logo](./docs/img/wechatmini_small.jpg)
 
-* [后台地址](https://goecology.questionfans.com) 
+* [后台地址](https://egoshop.questionfans.com) 
 * 账号: egoshop 密码: egoshop
 
 
