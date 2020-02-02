@@ -1,8 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"github.com/goecology/egoshop/appgo/apps/shopapi/service"
 	"github.com/goecology/egoshop/appgo/model/mysql"
+	"github.com/goecology/egoshop/appgo/pkg/util"
 	"github.com/goecology/muses/pkg/cache/redis"
 	"github.com/goecology/muses/pkg/logger"
 	"github.com/jinzhu/gorm"
@@ -13,6 +15,7 @@ func mock(db *gorm.DB, endpoints, accessKeyId, accessKeySecret, bucketName strin
 	createCommodity(db, endpoints, accessKeyId, accessKeySecret, bucketName)
 	createAddressType(db)
 	createComCate(db)
+	createAdminUser(db)
 	createNew(db, rclient)
 }
 
@@ -314,6 +317,27 @@ type Info struct {
 	OriginPrice float64 `json:"originPrice"`
 	IsLabel     int     `json:"isLabel"`
 	LabelIcon   string  `json:"labelIcon"`
+}
+
+func createAdminUser(db *gorm.DB)  {
+	pwdHash, err := util.Hash("egoshop")
+	if err != nil {
+		fmt.Println("err",err)
+		return
+	}
+	user := mysql.User{
+		Name:        "egoshop",
+		Password:    pwdHash,
+		Status:      1,
+		CreatedAt:   time.Now(),
+		UpdatedAt:   time.Now(),
+		LastLoginIP: "127.0.0.1",
+		LastLoginTime:time.Now(),
+	}
+	if err = db.Create(&user).Error; err != nil {
+		fmt.Println("err",err)
+		return
+	}
 }
 
 func createNew(db *gorm.DB, rclient *redis.Client) {

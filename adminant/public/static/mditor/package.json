@@ -1,0 +1,156 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "mditor@1.2.9",
+        "scope": null,
+        "escapedName": "mditor",
+        "name": "mditor",
+        "rawSpec": "1.2.9",
+        "spec": "1.2.9",
+        "type": "version"
+      },
+      "/home/hexuan/my/micro-view"
+    ]
+  ],
+  "_from": "mditor@1.2.9",
+  "_id": "mditor@1.2.9",
+  "_inCache": true,
+  "_location": "/mditor",
+  "_nodeVersion": "7.6.0",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/mditor-1.2.9.tgz_1494434657439_0.488398646004498"
+  },
+  "_npmUser": {
+    "name": "houzhanfeng",
+    "email": "admin@xhou.net"
+  },
+  "_npmVersion": "4.1.2",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "mditor@1.2.9",
+    "scope": null,
+    "escapedName": "mditor",
+    "name": "mditor",
+    "rawSpec": "1.2.9",
+    "spec": "1.2.9",
+    "type": "version"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/mditor/-/mditor-1.2.9.tgz",
+  "_shasum": "56ff6b0a693049976683405605a078089cb30e69",
+  "_shrinkwrap": null,
+  "_spec": "mditor@1.2.9",
+  "_where": "/home/hexuan/my/micro-view",
+  "author": {
+    "name": "Houfeng",
+    "email": "admin@xhou.net",
+    "url": "http://houfeng.net"
+  },
+  "bugs": {
+    "url": "https://github.com/houfeng/mditor/issues"
+  },
+  "dependencies": {
+    "font-awesome": "^4.7.0",
+    "github-markdown-css": "^2.4.1",
+    "marked": "^0.3.6",
+    "mokit": "^3.1.2",
+    "ntils": "^2.1.0",
+    "prismjs": "^1.6.0",
+    "shortcut-key": "^1.0.0"
+  },
+  "description": "一个简洁、易于集成、方便扩展、期望舒服的编写 markdown 的编辑器",
+  "dev": {
+    "host": "localhost",
+    "port": 8008
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.21.0",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-polyfill": "^6.20.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-3": "^6.17.0",
+    "babel-runtime": "^6.20.0",
+    "bootstrap": "^3.3.7",
+    "cify": "^2.1.11",
+    "clean-webpack-plugin": "^0.1.14",
+    "css-loader": "^0.26.1",
+    "eslint": "^3.13.0",
+    "exorcist": "^0.4.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.10.0",
+    "html-webpack-plugin": "^2.26.0",
+    "isparta": "4.0.0",
+    "isparta-loader": "^2.0.0",
+    "istanbul": "0.4.5",
+    "jasmine": "2.5.2",
+    "jasmine-core": "2.5.0",
+    "json-loader": "^0.5.4",
+    "karma": "1.2.0",
+    "karma-chrome-launcher": "2.0.0",
+    "karma-coverage": "1.1.1",
+    "karma-jasmine": "1.0.2",
+    "karma-phantomjs-launcher": "1.0.2",
+    "karma-sourcemap-loader": "0.3.7",
+    "karma-spec-reporter": "0.0.26",
+    "karma-webpack": "1.8.0",
+    "less": "^2.7.2",
+    "less-loader": "^2.2.3",
+    "nokit-filter-proxy": "0.0.8",
+    "nokitjs": "^1.26.3",
+    "phantomjs-prebuilt": "^2.1.13",
+    "raw-loader": "^0.5.1",
+    "selenium-webdriver": "^3.0.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.14.0"
+  },
+  "directories": {},
+  "displayName": "Mditor embed",
+  "dist": {
+    "shasum": "56ff6b0a693049976683405605a078089cb30e69",
+    "tarball": "https://registry.npmjs.org/mditor/-/mditor-1.2.9.tgz"
+  },
+  "gitHead": "73972de1ec75e7fcf82d5a96ae2385654cb9d013",
+  "homepage": "http://mditor.com",
+  "keywords": [
+    "mditor",
+    "markdown",
+    "embedded",
+    "editor"
+  ],
+  "license": "MIT",
+  "main": "./lib/server/index.js",
+  "maintainers": [
+    {
+      "name": "houzhanfeng",
+      "email": "admin@xhou.net"
+    }
+  ],
+  "name": "mditor",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/houfeng/mditor.git"
+  },
+  "scripts": {
+    "build": "./bin/build.sh",
+    "clear": "./bin/clear.sh",
+    "dev": "./bin/watch.sh",
+    "e2e": "./bin/e2e.sh",
+    "lint": "eslint ./src",
+    "restart": "./bin/restart.sh",
+    "start": "./bin/start.sh",
+    "stop": "./bin/stop.sh",
+    "test": "./bin/test.sh",
+    "unit": "./bin/unit.sh",
+    "watch": "./bin/watch.sh"
+  },
+  "version": "1.2.9"
+}

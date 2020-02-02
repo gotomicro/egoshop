@@ -1,0 +1,11 @@
+<div class="finder {{active?'active':''}}">
+  <div>
+    <input m:id="findBox" m:model="findWord" m:on:keydown="onFindEnter" m:on:compositionend="onCompositionEnd" type="text" placeholder="Find">
+    <i class="fa fa-search" aria-hidden="true" tabindex="-1" m:on:click="find()"></i>
+  </div>
+  <div>
+    <input m:id="replaceBox" m:model="replaceWord" m:on:keydown="onReplaceEnter" m:on:compositionend="onCompositionEnd" type="text"
+      placeholder="Replace">
+    <i class="fa fa-exchange" aria-hidden="true" tabindex="-1" m:on:click="replace()"></i>
+  </div>
+</div>

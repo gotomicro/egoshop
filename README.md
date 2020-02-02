@@ -15,29 +15,45 @@ EGoShop是Go语言实现的商城项目。
 ```bash
 在自己的mysql里创建一个egoshop的数据库
 
-make local.createdb # 同步自己的数据库
+make local.createdb # 创建自己数据库结构
 
 make local.mockdb # 同步db数据
 
-make go.api # 运行api的go程序
+make go.api # 运行小程序的go程序
+
+make wechat # 运行小程序
 
 make go.admin # 运行admin的go程序
 
-make wechat # 运行小程序
- 
+make ant # 运行后台
 
 ```
-## 3 监控
+
+## 3 体验
+* 小程序地址
+
+![logo](./docs/img/wechatmini.jpg)
+
+* [后台地址](https://goecology.questionfans.com) 
+* 账号: egoshop 密码: egoshop
+
+
+## 4 监控
 ![monitor](./docs/img/monitor.png)
 
-## 4 贡献代码
+## 5 贡献代码
 
 [CONTRIBUTING](./CONTRIBUTING-CN.md)
 
-## 5 加入我们
+## 6 加入我们
 
 ![wechat](./docs/img/wechat.jpg)
 
-## 6 LICENSE
+## 7 参考代码
+* https://github.com/mojisrc/fashop
+* https://github.com/dingyong0214/ThorUI-uniapp
+* https://github.com/bilibili/kratos
+
+## 8 LICENSE
 
 [Apache License 2.0](./LICENSE)

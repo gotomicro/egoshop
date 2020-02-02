@@ -10,7 +10,7 @@ import (
 	"github.com/goecology/egoshop/appgo/apps/shopadmin/router/admin/admineditor"
 	"github.com/goecology/egoshop/appgo/apps/shopadmin/router/admin/adminfreight"
 	"github.com/goecology/egoshop/appgo/apps/shopadmin/router/admin/adminuser"
-	"github.com/goecology/egoshop/appgo/apps/shopadmin/router/admin/adminuserfeed"
+	"github.com/goecology/egoshop/appgo/apps/shopadmin/router/admin/adminusergood"
 	"github.com/goecology/egoshop/appgo/apps/shopadmin/router/admin/auth"
 	"github.com/goecology/egoshop/appgo/apps/shopadmin/router/admin/image"
 	"github.com/goecology/egoshop/appgo/apps/shopadmin/router/mdw"
@@ -60,10 +60,10 @@ func adminGrp(r *gin.Engine) {
 		commentGrp.GET("/list", admincomment.List) // 获取所有用户
 	}
 
-	userfeedGrp := adGrp.Group("/userfeed")
+	userfeedGrp := adGrp.Group("/usergood")
 	userfeedGrp.Use(mdw.LoginAPIRequired())
 	{
-		userfeedGrp.GET("/list", adminuserfeed.List) // 获取所有用户
+		userfeedGrp.GET("/list", adminusergood.List) // 获取所有用户
 	}
 
 	comGrp := adGrp.Group("/com")

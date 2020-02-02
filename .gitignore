@@ -1,5 +1,7 @@
 tool/createdb/createdb
 tool/gencode/gencode
+tool/mockdb/mockdb
 appgo/apps/shopadmin/bin
 appgo/apps/shopapi/bin
 .idea
+

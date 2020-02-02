@@ -40,14 +40,14 @@ func main() {
 		fmt.Println("[migrate] conn fail", e)
 		return
 	}
-	//db.DropTable(Models...)
+	db.DropTable(Models...)
 	if db.Error != nil {
 		fmt.Println("db.err", db.Error)
 		return
 	}
-	//db.SingularTable(true)
+	db.SingularTable(true)
 
-	//db.Set("gorm:table_options", "ENGINE=InnoDB").AutoMigrate(Models...)
+	db.Set("gorm:table_options", "ENGINE=InnoDB").AutoMigrate(Models...)
 	if db.Error != nil {
 		fmt.Println("db.err", db.Error)
 		return

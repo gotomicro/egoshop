@@ -1,0 +1,10 @@
+<div tabindex="1" class="mditor {{split?'split':''}} {{preview?'preview':''}} {{fullscreen?'fullscreen':''}}" style="width:{{width}};height:{{height}}">
+  <div class="head" m:on:dblclick="onHeadDblClick">
+    <m:toolbar m:id="toolbar" m:prop:mditor="self"></m:toolbar>
+  </div>
+  <div class="body">
+    <m:editor m:id="editor" m:prop:mditor="self" m:model:value="value" m:on:scroll="syncScroll" m:on:changed="onChanged" m:on:input="onInput" m:on:paste="onPaste"></m:editor>
+    <m:viewer m:id="viewer" m:prop:mditor="self" m:model:value="value"></m:viewer>
+    <m:finder m:id="finder" m:prop:mditor="self"></m:viewer>
+  </div>
+</div>

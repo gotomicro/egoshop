@@ -58,6 +58,10 @@ func List(c *gin.Context) {
 
 	//处理封面图片
 	for idx, comInfo := range list {
+		resp, _ := dao.ComSku.List(c, mysql.Conds{
+			"com_id": comInfo.Id,
+		})
+		comInfo.SkuList = resp
 		comInfo.Cover = imagex.ShowImg(comInfo.Cover, "x1")
 		list[idx] = comInfo
 	}
@@ -72,8 +76,13 @@ func One(c *gin.Context) {
 		return
 	}
 
-	resp, _ := dao.Com.Info(c, reqId)
-	base.JSON(c, code.MsgOk, resp)
+	comInfo, _ := dao.Com.Info(c, reqId)
+	resp, _ := dao.ComSku.List(c, mysql.Conds{
+		"com_id": comInfo.Id,
+	})
+	comInfo.SkuList = resp
+	comInfo.Gallery = imagex.ShowImgArr(comInfo.Gallery,"")
+	base.JSON(c, code.MsgOk, comInfo)
 }
 
 //获取或更新文档内容.
@@ -470,7 +479,7 @@ type createMysql struct {
 	BaseSaleNum       int
 	Price             float64
 	Cover             string
-	SkuList           mysql.ComSkuListJson
+	SkuList           []mysql.ComSku
 	Cids              mysql.ComCategoryIdsJson
 	Gallery           mysql.ComGalleryJson
 	FreightTemplateId int

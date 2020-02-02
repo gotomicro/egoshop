@@ -41,7 +41,7 @@ type Com struct {
 	Markdown     string          `gorm:"-"json:"markdown"`
 	Html         string          `gorm:"-"json:"html"`
 	WechatHtml   string          `gorm:"-"json:"wechatHtml"`
-	SkuList      ComSkuListJson  `gorm:"not null;type:json"json:"skuList"`  // 库存列表信息,冗余字段
+	SkuList      []ComSku        `gorm:"-"json:"skuList"`                   // 库存列表信息,冗余字段
 	SpecList     ComSpecListJson `gorm:"not null;type:json"json:"specList"` // 规格参数
 }
 
@@ -86,16 +86,6 @@ func (c ComImageSpecImagesJson) Value() (driver.Value, error) {
 }
 
 func (c *ComImageSpecImagesJson) Scan(input interface{}) error {
-	return json.Unmarshal(input.([]byte), c)
-}
-
-// 请在model/mysql/addition.json.go里定义ComSkuListJson结构体
-func (c ComSkuListJson) Value() (driver.Value, error) {
-	b, err := json.Marshal(c)
-	return string(b), err
-}
-
-func (c *ComSkuListJson) Scan(input interface{}) error {
 	return json.Unmarshal(input.([]byte), c)
 }
 

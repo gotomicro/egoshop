@@ -1,0 +1,1380 @@
+
+
+/* edit start */
+.docEdit {
+  .rightScreen {
+    background: #fff;
+    overflow: auto;
+    position: absolute;
+    top: 80px;
+    bottom: 20px;
+    margin-left: 13.5%;
+    float: left;
+    width: 100%;
+    .rightContent {
+      background: #fff;
+      margin: -1px;
+      border: 1px solid #ddd;
+      border-bottom: 0px;
+      .disabled,
+      .disabled > i,
+      .disabled > i:hover {
+        background-color: #ddd !important;
+        border: 1px solid #ddd;
+        cursor: not-allowed;
+      }
+      .change,
+      .change > i {
+        background-color: #44b036 !important;
+        border: 1px #44b036 solid !important;
+        color: #ffffff;
+      }
+      .add {
+        height: 150px;
+        width: 300px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-top: 100px;
+        cursor: pointer;
+        .icon {
+          float: left;
+        }
+        .title {
+          font-size: 30px;
+          padding-left: 70px;
+        }
+      }
+    }
+  }
+
+  .leftScreenTest {
+    float: left;
+    overflow: hidden;
+    width: 13%;
+    border: 1px solid #ddd;
+    margin-right: 0.5%;
+    background-color: #fafafa;
+    position: absolute;
+    top: 80px;
+    bottom: 20px;
+    border: 1px solid #ddd;
+    background-color: #fafafa;
+    .bookName {
+      width: 100%;
+      height: 30px;
+      padding: 3px 0px;
+      font-size: 15px;
+      text-align: center;
+      color: white;
+      background-color: #f70;
+    }
+    .leftHead {
+      width: 100%;
+      padding: 4px 10px;
+    }
+    .menu {
+      position: absolute;
+      width: 100%;
+      overflow: auto;
+      top: 70px;
+      bottom: 0px;
+      .menuTree {
+        width: 100%;
+        overflow: auto;
+        margin-top: 24px;
+        transition: all 0.3s;
+        .ant-tree-node-content-wrapper {
+          width: calc(100% - 32px);
+        }
+      }
+    }
+  }
+
+  .leftScreen {
+    float: left;
+    overflow: hidden;
+    width: 14%;
+    margin-right: 0.5%;
+    border: 1px solid #ddd;
+    top: 80px;
+    bottom: 20px;
+    border-top: 1px solid #ddd;
+    background-color: #fafafa;
+    .bookName {
+      width: 100%;
+      height: 30px;
+      padding: 3px 0px;
+      font-size: 15px;
+      text-align: center;
+      color: white;
+      background-color: #f70;
+    }
+    .leftHead {
+      width: 100%;
+      font-size: 20px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+    .menufake {
+      position: absolute;
+      width: 13%;
+      overflow: auto;
+      top: 145px;
+      bottom: 20px;
+      background-color: #fafafa;
+      border: 1px solid #ddd;
+      border-top: 0px;
+      .menu-tree {
+        width: 100%;
+        margin-top: 24px;
+        transition: all 0.3s;
+        .ant-tree-node-content-wrapper {
+          width: calc(100% - 32px);
+        }
+      }
+    }
+  }
+  .treeMenu {
+    position: absolute;
+    display: none;
+    z-index: 99;
+    border-radius: 4px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+    border-color: transparent;
+    background: #fff;
+    top: 0;
+    left: 0;
+    transition: all cubic-bezier(0.22, 0.58, 0.12, 0.98) 0.2s;
+    animation: scale-in-ease cubic-bezier(0.22, 0.58, 0.12, 0.98) 0.5s;
+    .item {
+      color: #333333;
+      cursor: pointer;
+      padding: 8px 16px 8px 16px;
+      border-bottom: 1px solid #e2e2e2;
+      transition: all 0.3s;
+      &:hover {
+        background: #ffe5cf;
+      }
+    }
+  }
+}
+.docEditFull {
+  border: 1px solid #ddd;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  background: white;
+  overflow: auto;
+  .rightScreen {
+    background: #fff;
+    overflow: hidden;
+    position: absolute;
+    top: 0px;
+    bottom: 10px;
+    margin-left: 14.5%;
+    float: left;
+    width: 100%;
+
+    .rightContent {
+      background: #fff;
+      margin: -1px;
+      border: 1px solid #ddd;
+      border-bottom: 0px;
+      .disabled,
+      .disabled > i,
+      .disabled > i:hover {
+        background-color: #ddd !important;
+        border: 1px solid #ddd;
+        cursor: not-allowed;
+      }
+      .change,
+      .change > i {
+        background-color: #44b036 !important;
+        border: 1px #44b036 solid !important;
+        color: #ffffff;
+      }
+      .add {
+        height: 150px;
+        width: 300px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-top: 100px;
+        cursor: pointer;
+        .icon {
+          float: left;
+        }
+        .title {
+          font-size: 30px;
+          padding-left: 70px;
+        }
+      }
+    }
+  }
+
+  .leftScreenTest {
+    float: left;
+    overflow: hidden;
+    width: 14%;
+    border: 1px solid #ddd;
+    margin-right: 0.5%;
+    background-color: #fafafa;
+    position: absolute;
+    top: 0px;
+    bottom: 10px;
+    border: 1px solid #ddd;
+    background-color: #fafafa;
+    .bookName {
+      width: 100%;
+      height: 30px;
+      padding: 3px 0px;
+      font-size: 15px;
+      text-align: center;
+      color: white;
+      background-color: #f70;
+    }
+    .leftHead {
+      width: 100%;
+      padding: 4px 10px;
+    }
+    .menu {
+      width: 100%;
+      overflow: auto;
+      height: 876px;
+      .menuTree {
+        width: 100%;
+        overflow: auto;
+        margin-top: 24px;
+        transition: all 0.3s;
+      }
+    }
+  }
+  .leftScreen {
+    float: left;
+    overflow: hidden;
+    width: 14%;
+    margin-right: 0.5%;
+    border-top: 1px solid #ddd;
+    background-color: #fafafa;
+    .bookName {
+      width: 100%;
+      height: 30px;
+      padding: 3px 0px;
+      font-size: 15px;
+      text-align: center;
+      color: white;
+      background-color: #f70;
+    }
+    .leftHead {
+      width: 100%;
+      font-size: 20px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+    .menufake {
+      position: absolute;
+      width: 14%;
+      overflow: auto;
+      top: 64px;
+      bottom: 10px;
+      background-color: #fafafa;
+      border: 1px solid #ddd;
+      border-top: 0;
+      .menu-tree {
+        width: 100%;
+        margin-top: 24px;
+        transition: all 0.3s;
+        .ant-tree-node-content-wrapper {
+          width: calc(100% - 32px);
+        }
+      }
+    }
+  }
+  .treeMenu {
+    position: absolute;
+    display: none;
+    z-index: 99;
+    border-radius: 4px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+    border-color: transparent;
+    background: #fff;
+    top: 0;
+    left: 0;
+    transition: all cubic-bezier(0.22, 0.58, 0.12, 0.98) 0.2s;
+    animation: scale-in-ease cubic-bezier(0.22, 0.58, 0.12, 0.98) 0.5s;
+    .item {
+      color: #333333;
+      cursor: pointer;
+      padding: 8px 16px 8px 16px;
+      border-bottom: 1px solid #e2e2e2;
+      transition: all 0.3s;
+      &:hover {
+        background: #ffe5cf;
+      }
+    }
+  }
+}
+/* edit end */
+/* show start */
+.docShow {
+  .docContainer {
+    background: #fff;
+    overflow: hidden;
+    position: absolute;
+    top: 80px;
+    bottom: 20px;
+    float: left;
+    width: 80%;
+    border: 1px solid #ddd;
+    .docHeader {
+      padding: 0 20px;
+      height: 60px;
+      border-bottom: 1px solid #e0e1e5;
+      .docHeaderLeft {
+        padding: 19px 0;
+        float: left;
+        font-size: 15px;
+        height: 22px;
+        line-height: 22px;
+      }
+      .docHeaderRight {
+        float: right;
+        display: inline-block;
+      }
+      .docBtnEditor {
+        display: inline-block;
+        width: 80px;
+        margin-right: 10px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 11px;
+        color: #82B6F4;
+        text-align: center;
+        border-radius: 6px;
+        border: 1px solid #e2e2e2;
+        cursor: pointer;
+        background-color: #fff;
+        margin-top: 14px;
+      }
+      .toolbar {
+        position: relative;
+        display: inline-block;
+        margin-top: 20px;
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+      .toolbar .toolsItem {
+        display: inline-block;
+        margin-left: 6px;
+        position: relative;
+        &:hover {
+          border: 1px solid #ffb979;
+          background: #ffb979;
+        }
+      }
+    }
+    .docBody {
+      clear: both;
+      //position: absolute;
+      bottom: 0px;
+      overflow: auto;
+      padding-left: 10px;
+      float: left;
+      width: 100%;
+      .docContent {
+        background: #fff;
+        width: 100%;
+        .outerdiv {
+          position: fixed;
+          top: 0;
+          left: 0;
+          background: rgba(0, 0, 0, 0.7);
+          z-index: 2;
+          width: 100%;
+          height: 100%;
+          display: none;
+          .innerdiv {
+            position: absolute;
+            .bigimg {
+              border: 5px solid #f3c198;
+            }
+          }
+        }
+      }
+    }
+  }
+  .rightScreenApi {
+    background: #fff;
+    overflow: auto;
+    .split {
+      background: #fff;
+      float: left;
+      height: 820px;
+      width: 5px;
+      cursor: e-resize;
+    }
+    .rightContent {
+      background: #fff;
+      margin-left: 240px;
+    }
+  }
+  .middleScreen {
+    float: left;
+    width: 240px;
+    height: 820px;
+  }
+  .leftScreenApi {
+    position: absolute;
+    top: 82px;
+    float: left;
+    overflow: auto;
+    width: 242px;
+    height: 820px;
+    border: 1px solid #ddd;
+    background-color: #fafafa;
+    .leftHead {
+      width: 240px;
+      padding: 8px 10px;
+    }
+    .menu {
+      width: 240px;
+      .menuTree {
+        width: 100%;
+        overflow: auto;
+        margin-top: 24px;
+        transition: all 0.3s;
+      }
+    }
+  }
+}
+.docShowFull {
+  border: 1px solid #ddd;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  background: white;
+  overflow: auto;
+  .rightScreen {
+    background: #fff;
+    overflow: hidden;
+    position: absolute;
+    top: 0px;
+    bottom: 10px;
+    margin-left: 14.5%;
+    float: left;
+    width: 100%;
+    border: 1px solid #ddd;
+    .rightbody {
+      .editorHeader {
+        .info {
+          float: left;
+          font-size: 15px;
+          padding: 3px 15px;
+          font-weight: bold;
+        }
+        .toolItem {
+          float: right;
+          padding-right: 2px;
+          .tool {
+            padding-top: 2px;
+            margin-left: 3px;
+            width: 26px;
+            font-size: 16px;
+            color: #666;
+            text-align: center;
+            cursor: pointer;
+            &:hover {
+              border: 1px solid #ffb979;
+              background: #ffb979;
+            }
+          }
+        }
+        padding-top: 0px;
+        padding-right: 5px;
+        height: 30px;
+        background: #f2f2f2;
+        border-bottom: 1px solid #ddd;
+      }
+      .rightContiner {
+        position: absolute;
+        top: 31px;
+        bottom: 0px;
+        overflow: auto;
+        padding-left: 10px;
+        float: left;
+        width: 100%;
+        .rightContent {
+          background: #fff;
+          width: 100%;
+          .outerdiv {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            display: none;
+            .innerdiv {
+              position: absolute;
+              .bigimg {
+                border: 5px solid #f3c198;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .leftScreen {
+    float: left;
+    overflow: hidden;
+    width: 14%;
+    border: 1px solid #ddd;
+    margin-right: 0.5%;
+    background-color: #fafafa;
+    position: absolute;
+    top: 0px;
+    bottom: 10px;
+    border: 1px solid #ddd;
+    background-color: #fafafa;
+    .bookName {
+      width: 100%;
+      height: 30px;
+      padding: 3px 0px;
+      font-size: 15px;
+      text-align: center;
+      color: white;
+      background-color: #f70;
+    }
+    .leftHead {
+      width: 100%;
+      padding: 4px 10px;
+    }
+    .menu {
+      width: 100%;
+      overflow: auto;
+      height: 876px;
+      .menuTree {
+        width: 100%;
+        overflow: auto;
+        margin-top: 24px;
+        transition: all 0.3s;
+      }
+    }
+  }
+  .rightScreenApi {
+    background: #fff;
+    overflow: auto;
+    .split {
+      background: #fff;
+      float: left;
+      height: 820px;
+      width: 5px;
+      cursor: e-resize;
+    }
+    .rightContent {
+      background: #fff;
+      margin-left: 240px;
+    }
+  }
+  .middleScreen {
+    float: left;
+    width: 240px;
+    height: 820px;
+  }
+  .leftScreenApi {
+    position: absolute;
+    top: 82px;
+    float: left;
+    overflow: auto;
+    width: 242px;
+    height: 820px;
+    border: 1px solid #ddd;
+    background-color: #fafafa;
+    .leftHead {
+      width: 240px;
+      padding: 8px 10px;
+    }
+    .menu {
+      width: 240px;
+      .menuTree {
+        width: 100%;
+        overflow: auto;
+        margin-top: 24px;
+        transition: all 0.3s;
+      }
+    }
+  }
+}
+.docShowTmp {
+  .rightScreen {
+    background: #fff;
+    overflow: hidden;
+    position: absolute;
+    top: 10px;
+    bottom: 20px;
+    margin-left: 14.5%;
+    float: left;
+    width: 100%;
+    overflow: auto;
+    border: 1px solid #ddd;
+    .rightContent {
+      background: #fff;
+      width: 100%;
+      .outerdiv {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        display: none;
+        .innerdiv {
+          position: absolute;
+          .bigimg {
+            border: 5px solid #f3c198;
+          }
+        }
+      }
+    }
+  }
+  .leftScreen {
+    float: left;
+    overflow: hidden;
+    width: 14%;
+    border: 1px solid #ddd;
+    margin-right: 0.5%;
+    background-color: #fafafa;
+    position: absolute;
+    top: 10px;
+    bottom: 20px;
+    border: 1px solid #ddd;
+    background-color: #fafafa;
+    .bookName {
+      width: 100%;
+      height: 30px;
+      padding: 3px 0px;
+      font-size: 15px;
+      text-align: center;
+      color: white;
+      background-color: #f70;
+    }
+    .leftHead {
+      width: 100%;
+      padding: 4px 10px;
+    }
+    .menu {
+      position: absolute;
+      width: 100%;
+      overflow: auto;
+      top: 60px;
+      bottom: 0px;
+      .menuTree {
+        width: 100%;
+        overflow: auto;
+        margin-top: 24px;
+        transition: all 0.3s;
+      }
+    }
+  }
+}
+
+/* show end */
+/* edit start */
+.docEdit {
+  .rightScreen {
+    background: #fff;
+    overflow: auto;
+    position: absolute;
+    top: 80px;
+    bottom: 20px;
+    margin-left: 13.5%;
+    float: left;
+    width: 100%;
+    .rightContent {
+      background: #fff;
+      margin: -1px;
+      border: 1px solid #ddd;
+      border-bottom: 0px;
+      .disabled,
+      .disabled > i,
+      .disabled > i:hover {
+        background-color: #ddd !important;
+        border: 1px solid #ddd;
+        cursor: not-allowed;
+      }
+      .change,
+      .change > i {
+        background-color: #44b036 !important;
+        border: 1px #44b036 solid !important;
+        color: #ffffff;
+      }
+      .add {
+        height: 150px;
+        width: 300px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-top: 100px;
+        cursor: pointer;
+        .icon {
+          float: left;
+        }
+        .title {
+          font-size: 30px;
+          padding-left: 70px;
+        }
+      }
+    }
+  }
+
+  .leftScreenTest {
+    float: left;
+    overflow: hidden;
+    width: 13%;
+    border: 1px solid #ddd;
+    margin-right: 0.5%;
+    background-color: #fafafa;
+    position: absolute;
+    top: 80px;
+    bottom: 20px;
+    border: 1px solid #ddd;
+    background-color: #fafafa;
+    .bookName {
+      width: 100%;
+      height: 30px;
+      padding: 3px 0px;
+      font-size: 15px;
+      text-align: center;
+      color: white;
+      background-color: #f70;
+    }
+    .leftHead {
+      width: 100%;
+      padding: 4px 10px;
+    }
+    .menu {
+      position: absolute;
+      width: 100%;
+      overflow: auto;
+      top: 70px;
+      bottom: 0px;
+      .menuTree {
+        width: 100%;
+        overflow: auto;
+        margin-top: 24px;
+        transition: all 0.3s;
+        .ant-tree-node-content-wrapper {
+          width: calc(100% - 32px);
+        }
+      }
+    }
+  }
+
+  .leftScreen {
+    float: left;
+    overflow: hidden;
+    width: 14%;
+    margin-right: 0.5%;
+    border: 1px solid #ddd;
+    top: 80px;
+    bottom: 20px;
+    border-top: 1px solid #ddd;
+    background-color: #fafafa;
+    .bookName {
+      width: 100%;
+      height: 30px;
+      padding: 3px 0px;
+      font-size: 15px;
+      text-align: center;
+      color: white;
+      background-color: #f70;
+    }
+    .leftHead {
+      width: 100%;
+      font-size: 20px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+    .menufake {
+      position: absolute;
+      width: 13%;
+      overflow: auto;
+      top: 145px;
+      bottom: 20px;
+      background-color: #fafafa;
+      border: 1px solid #ddd;
+      border-top: 0px;
+      .menu-tree {
+        width: 100%;
+        margin-top: 24px;
+        transition: all 0.3s;
+        .ant-tree-node-content-wrapper {
+          width: calc(100% - 32px);
+        }
+      }
+    }
+  }
+  .treeMenu {
+    position: absolute;
+    display: none;
+    z-index: 99;
+    border-radius: 4px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+    border-color: transparent;
+    background: #fff;
+    top: 0;
+    left: 0;
+    transition: all cubic-bezier(0.22, 0.58, 0.12, 0.98) 0.2s;
+    animation: scale-in-ease cubic-bezier(0.22, 0.58, 0.12, 0.98) 0.5s;
+    .item {
+      color: #333333;
+      cursor: pointer;
+      padding: 8px 16px 8px 16px;
+      border-bottom: 1px solid #e2e2e2;
+      transition: all 0.3s;
+      &:hover {
+        background: #ffe5cf;
+      }
+    }
+  }
+}
+.docEditFull {
+  border: 1px solid #ddd;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  background: white;
+  overflow: auto;
+  .rightScreen {
+    background: #fff;
+    overflow: hidden;
+    position: absolute;
+    top: 0px;
+    bottom: 10px;
+    margin-left: 14.5%;
+    float: left;
+    width: 100%;
+
+    .rightContent {
+      background: #fff;
+      margin: -1px;
+      border: 1px solid #ddd;
+      border-bottom: 0px;
+      .disabled,
+      .disabled > i,
+      .disabled > i:hover {
+        background-color: #ddd !important;
+        border: 1px solid #ddd;
+        cursor: not-allowed;
+      }
+      .change,
+      .change > i {
+        background-color: #44b036 !important;
+        border: 1px #44b036 solid !important;
+        color: #ffffff;
+      }
+      .add {
+        height: 150px;
+        width: 300px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-top: 100px;
+        cursor: pointer;
+        .icon {
+          float: left;
+        }
+        .title {
+          font-size: 30px;
+          padding-left: 70px;
+        }
+      }
+    }
+  }
+
+  .leftScreenTest {
+    float: left;
+    overflow: hidden;
+    width: 14%;
+    border: 1px solid #ddd;
+    margin-right: 0.5%;
+    background-color: #fafafa;
+    position: absolute;
+    top: 0px;
+    bottom: 10px;
+    border: 1px solid #ddd;
+    background-color: #fafafa;
+    .bookName {
+      width: 100%;
+      height: 30px;
+      padding: 3px 0px;
+      font-size: 15px;
+      text-align: center;
+      color: white;
+      background-color: #f70;
+    }
+    .leftHead {
+      width: 100%;
+      padding: 4px 10px;
+    }
+    .menu {
+      width: 100%;
+      overflow: auto;
+      height: 876px;
+      .menuTree {
+        width: 100%;
+        overflow: auto;
+        margin-top: 24px;
+        transition: all 0.3s;
+      }
+    }
+  }
+  .leftScreen {
+    float: left;
+    overflow: hidden;
+    width: 14%;
+    margin-right: 0.5%;
+    border-top: 1px solid #ddd;
+    background-color: #fafafa;
+    .bookName {
+      width: 100%;
+      height: 30px;
+      padding: 3px 0px;
+      font-size: 15px;
+      text-align: center;
+      color: white;
+      background-color: #f70;
+    }
+    .leftHead {
+      width: 100%;
+      font-size: 20px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+    .menufake {
+      position: absolute;
+      width: 14%;
+      overflow: auto;
+      top: 64px;
+      bottom: 10px;
+      background-color: #fafafa;
+      border: 1px solid #ddd;
+      border-top: 0;
+      .menu-tree {
+        width: 100%;
+        margin-top: 24px;
+        transition: all 0.3s;
+        .ant-tree-node-content-wrapper {
+          width: calc(100% - 32px);
+        }
+      }
+    }
+  }
+  .treeMenu {
+    position: absolute;
+    display: none;
+    z-index: 99;
+    border-radius: 4px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+    border-color: transparent;
+    background: #fff;
+    top: 0;
+    left: 0;
+    transition: all cubic-bezier(0.22, 0.58, 0.12, 0.98) 0.2s;
+    animation: scale-in-ease cubic-bezier(0.22, 0.58, 0.12, 0.98) 0.5s;
+    .item {
+      color: #333333;
+      cursor: pointer;
+      padding: 8px 16px 8px 16px;
+      border-bottom: 1px solid #e2e2e2;
+      transition: all 0.3s;
+      &:hover {
+        background: #ffe5cf;
+      }
+    }
+  }
+}
+/* edit end */
+/* show start */
+.docShow {
+  .docContainer {
+    background: #fff;
+    overflow: hidden;
+    position: absolute;
+    top: 80px;
+    bottom: 20px;
+    float: left;
+    width: 80%;
+    border: 1px solid #ddd;
+    .docHeader {
+      padding: 0 20px;
+      height: 60px;
+      border-bottom: 1px solid #e0e1e5;
+      .docHeaderLeft {
+        padding: 19px 0;
+        float: left;
+        font-size: 15px;
+        height: 22px;
+        line-height: 22px;
+      }
+      .docHeaderRight {
+        float: right;
+        display: inline-block;
+      }
+      .docBtnEditor {
+        display: inline-block;
+        width: 80px;
+        margin-right: 10px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 11px;
+        color: #82B6F4;
+        text-align: center;
+        border-radius: 6px;
+        border: 1px solid #e2e2e2;
+        cursor: pointer;
+        background-color: #fff;
+        margin-top: 14px;
+      }
+      .toolbar {
+        position: relative;
+        display: inline-block;
+        margin-top: 20px;
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+      .toolbar .toolsItem {
+        display: inline-block;
+        margin-left: 6px;
+        position: relative;
+        &:hover {
+          border: 1px solid #ffb979;
+          background: #ffb979;
+        }
+      }
+    }
+    .docBody {
+      clear: both;
+      //position: absolute;
+      bottom: 0px;
+      overflow: auto;
+      padding-left: 10px;
+      float: left;
+      width: 100%;
+      .docContent {
+        background: #fff;
+        width: 100%;
+        .outerdiv {
+          position: fixed;
+          top: 0;
+          left: 0;
+          background: rgba(0, 0, 0, 0.7);
+          z-index: 2;
+          width: 100%;
+          height: 100%;
+          display: none;
+          .innerdiv {
+            position: absolute;
+            .bigimg {
+              border: 5px solid #f3c198;
+            }
+          }
+        }
+      }
+    }
+  }
+  .rightScreenApi {
+    background: #fff;
+    overflow: auto;
+    .split {
+      background: #fff;
+      float: left;
+      height: 820px;
+      width: 5px;
+      cursor: e-resize;
+    }
+    .rightContent {
+      background: #fff;
+      margin-left: 240px;
+    }
+  }
+  .middleScreen {
+    float: left;
+    width: 240px;
+    height: 820px;
+  }
+  .leftScreenApi {
+    position: absolute;
+    top: 82px;
+    float: left;
+    overflow: auto;
+    width: 242px;
+    height: 820px;
+    border: 1px solid #ddd;
+    background-color: #fafafa;
+    .leftHead {
+      width: 240px;
+      padding: 8px 10px;
+    }
+    .menu {
+      width: 240px;
+      .menuTree {
+        width: 100%;
+        overflow: auto;
+        margin-top: 24px;
+        transition: all 0.3s;
+      }
+    }
+  }
+}
+.docShowFull {
+  border: 1px solid #ddd;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  background: white;
+  overflow: auto;
+  .rightScreen {
+    background: #fff;
+    overflow: hidden;
+    position: absolute;
+    top: 0px;
+    bottom: 10px;
+    margin-left: 14.5%;
+    float: left;
+    width: 100%;
+    border: 1px solid #ddd;
+    .rightbody {
+      .editorHeader {
+        .info {
+          float: left;
+          font-size: 15px;
+          padding: 3px 15px;
+          font-weight: bold;
+        }
+        .toolItem {
+          float: right;
+          padding-right: 2px;
+          .tool {
+            padding-top: 2px;
+            margin-left: 3px;
+            width: 26px;
+            font-size: 16px;
+            color: #666;
+            text-align: center;
+            cursor: pointer;
+            &:hover {
+              border: 1px solid #ffb979;
+              background: #ffb979;
+            }
+          }
+        }
+        padding-top: 0px;
+        padding-right: 5px;
+        height: 30px;
+        background: #f2f2f2;
+        border-bottom: 1px solid #ddd;
+      }
+      .rightContiner {
+        position: absolute;
+        top: 31px;
+        bottom: 0px;
+        overflow: auto;
+        padding-left: 10px;
+        float: left;
+        width: 100%;
+        .rightContent {
+          background: #fff;
+          width: 100%;
+          .outerdiv {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            display: none;
+            .innerdiv {
+              position: absolute;
+              .bigimg {
+                border: 5px solid #f3c198;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .leftScreen {
+    float: left;
+    overflow: hidden;
+    width: 14%;
+    border: 1px solid #ddd;
+    margin-right: 0.5%;
+    background-color: #fafafa;
+    position: absolute;
+    top: 0px;
+    bottom: 10px;
+    border: 1px solid #ddd;
+    background-color: #fafafa;
+    .bookName {
+      width: 100%;
+      height: 30px;
+      padding: 3px 0px;
+      font-size: 15px;
+      text-align: center;
+      color: white;
+      background-color: #f70;
+    }
+    .leftHead {
+      width: 100%;
+      padding: 4px 10px;
+    }
+    .menu {
+      width: 100%;
+      overflow: auto;
+      height: 876px;
+      .menuTree {
+        width: 100%;
+        overflow: auto;
+        margin-top: 24px;
+        transition: all 0.3s;
+      }
+    }
+  }
+  .rightScreenApi {
+    background: #fff;
+    overflow: auto;
+    .split {
+      background: #fff;
+      float: left;
+      height: 820px;
+      width: 5px;
+      cursor: e-resize;
+    }
+    .rightContent {
+      background: #fff;
+      margin-left: 240px;
+    }
+  }
+  .middleScreen {
+    float: left;
+    width: 240px;
+    height: 820px;
+  }
+  .leftScreenApi {
+    position: absolute;
+    top: 82px;
+    float: left;
+    overflow: auto;
+    width: 242px;
+    height: 820px;
+    border: 1px solid #ddd;
+    background-color: #fafafa;
+    .leftHead {
+      width: 240px;
+      padding: 8px 10px;
+    }
+    .menu {
+      width: 240px;
+      .menuTree {
+        width: 100%;
+        overflow: auto;
+        margin-top: 24px;
+        transition: all 0.3s;
+      }
+    }
+  }
+}
+.docShowTmp {
+  .rightScreen {
+    background: #fff;
+    overflow: hidden;
+    position: absolute;
+    top: 10px;
+    bottom: 20px;
+    margin-left: 14.5%;
+    float: left;
+    width: 100%;
+    overflow: auto;
+    border: 1px solid #ddd;
+    .rightContent {
+      background: #fff;
+      width: 100%;
+      .outerdiv {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        display: none;
+        .innerdiv {
+          position: absolute;
+          .bigimg {
+            border: 5px solid #f3c198;
+          }
+        }
+      }
+    }
+  }
+  .leftScreen {
+    float: left;
+    overflow: hidden;
+    width: 14%;
+    border: 1px solid #ddd;
+    margin-right: 0.5%;
+    background-color: #fafafa;
+    position: absolute;
+    top: 10px;
+    bottom: 20px;
+    border: 1px solid #ddd;
+    background-color: #fafafa;
+    .bookName {
+      width: 100%;
+      height: 30px;
+      padding: 3px 0px;
+      font-size: 15px;
+      text-align: center;
+      color: white;
+      background-color: #f70;
+    }
+    .leftHead {
+      width: 100%;
+      padding: 4px 10px;
+    }
+    .menu {
+      position: absolute;
+      width: 100%;
+      overflow: auto;
+      top: 60px;
+      bottom: 0px;
+      .menuTree {
+        width: 100%;
+        overflow: auto;
+        margin-top: 24px;
+        transition: all 0.3s;
+      }
+    }
+  }
+}
+
+/* show end */

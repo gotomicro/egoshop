@@ -23,8 +23,6 @@ type ComImageSpecImagesJson StringsJson
 
 type StringsJson []string
 
-type ComSkuListJson []ComSku
-
 type ComBodyJson []OneComBody
 
 type OneComBody struct {
