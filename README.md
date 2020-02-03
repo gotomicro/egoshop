@@ -30,7 +30,7 @@ make ant # 运行后台
 ```
 
 ## 3 体验
-* [文档地址](https://doc.egoshop.qustionfans.com)
+* [文档地址](http://doc.egoshop.qustionfans.com)
 
 * 小程序地址
 
