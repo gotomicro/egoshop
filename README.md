@@ -30,6 +30,8 @@ make ant # 运行后台
 ```
 
 ## 3 体验
+* [文档地址](https://doc.egoshop.qustionfans.com)
+
 * 小程序地址
 
 ![logo](./docs/img/wechatmini_small.jpg)

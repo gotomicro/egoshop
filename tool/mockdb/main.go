@@ -56,7 +56,7 @@ func main() {
 	if err := muses.Container(
 		[]byte(`[muses.redis.egoshop]
         debug = true
-        addr = "127.0.0.1:16479"
+        addr = "127.0.0.1:26479"
         network = "tcp"
         db = 0
         password = ""
