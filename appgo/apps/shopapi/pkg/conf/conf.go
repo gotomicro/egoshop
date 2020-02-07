@@ -1,10 +1,7 @@
 package conf
 
 import (
-	"errors"
-	"github.com/BurntSushi/toml"
-	"io/ioutil"
-	"os"
+	"github.com/spf13/viper"
 )
 
 var (
@@ -52,26 +49,7 @@ type oss struct {
 	Domain string
 }
 
-// initConfig initializes the app configuration by first setting defaults,
-// then overriding settings from the app config file, then overriding
-// It returns an error if any.
-func InitConfig(configFile string) error {
-	if configFile == "" {
-		panic("config path is empty")
-	}
-	var err error
-
-	if _, err = os.Stat(configFile); err != nil {
-		return errors.New("config file err:" + err.Error())
-	} else {
-		configBytes, err := ioutil.ReadFile(configFile)
-		if err != nil {
-			return errors.New("config load err:" + err.Error())
-		}
-		_, err = toml.Decode(string(configBytes), &Conf)
-		if err != nil {
-			return errors.New("config decode err:" + err.Error())
-		}
-	}
-	return nil
+func Init() error {
+	err := viper.Unmarshal(&Conf)
+	return err
 }
