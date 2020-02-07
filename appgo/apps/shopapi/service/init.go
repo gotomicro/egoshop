@@ -12,7 +12,7 @@ var (
 	QueueView   *queueView
 )
 
-func Init() {
+func Init() error {
 	InitGen()
 	InitOssCli(
 		viper.GetString("oss.endpoint"),
@@ -25,4 +25,5 @@ func Init() {
 	QueuePoint = InitQueuePoint()
 	dao.WechatUser = dao.InitWechatUser()
 	QueueView = InitQueueView()
+	return nil
 }

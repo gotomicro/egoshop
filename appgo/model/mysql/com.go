@@ -21,7 +21,6 @@ type Com struct {
 	UpdatedBy    int             `gorm:"not null;comment:'注释'"json:"updatedBy"`
 	Title        string          `gorm:"not null;"json:"title"`
 	SubTitle     string          `gorm:"not null;"json:"subTitle"`
-	Cid          int             `gorm:"not null;comment:'注释'"json:"cid"`
 	Cover        string          `gorm:"not null;comment:'注释'"json:"cover"`
 	Gallery      ComGalleryJson  `gorm:"not null;type:json;comment:'注释'"json:"gallery"`
 	Stock        int             `gorm:"not null;comment:'注释'"json:"stock"` // goods表库存之和
@@ -43,6 +42,7 @@ type Com struct {
 	WechatHtml   string          `gorm:"-"json:"wechatHtml"`
 	SkuList      []ComSku        `gorm:"-"json:"skuList"`                   // 库存列表信息,冗余字段
 	SpecList     ComSpecListJson `gorm:"not null;type:json"json:"specList"` // 规格参数
+	Cids         []int           `gorm:"not null;"json:"cids"`
 }
 
 func (*Com) TableName() string {

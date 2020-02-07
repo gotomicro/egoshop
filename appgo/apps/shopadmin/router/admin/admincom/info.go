@@ -80,7 +80,14 @@ func One(c *gin.Context) {
 	resp, _ := dao.ComSku.List(c, mysql.Conds{
 		"com_id": comInfo.Id,
 	})
+	respCids,_ := dao.ComRelateCate.List(c,mysql.Conds{"com_id":comInfo.Id})
+	var cids []int
+	for _,value :=  range respCids {
+		cids = append(cids,value.Cid)
+	}
+
 	comInfo.SkuList = resp
+	comInfo.Cids = cids
 	comInfo.Gallery = imagex.ShowImgArr(comInfo.Gallery,"")
 	base.JSON(c, code.MsgOk, comInfo)
 }
@@ -132,7 +139,6 @@ func Create(c *gin.Context) {
 		UpdatedBy:   uid,
 		Title:       createParam.Title,
 		SubTitle:    createParam.SubTitle,
-		Cid:         req.Cid,
 		Cover:       createParam.Cover,
 		Gallery:     createParam.Gallery,
 		Stock:       createParam.Stock,
@@ -158,11 +164,9 @@ func Create(c *gin.Context) {
 	}
 
 	for i := range createCom.SkuList {
-		_, specSign, specValueSign, title := skuSign(createCom.SkuList[i].Spec)
+		_, _, _, title := skuSign(createCom.SkuList[i].Spec)
 		createCom.SkuList[i].ComId = createCom.Id
 		createCom.SkuList[i].Title = title
-		createCom.SkuList[i].SpecSign = specSign
-		createCom.SkuList[i].SpecValueSign = specValueSign
 		err = dao.ComSku.Create(c, tx, &createCom.SkuList[i])
 		if err != nil {
 			tx.Rollback()
@@ -228,7 +232,6 @@ func Update(c *gin.Context) {
 		"is_on_sale":        createParam.IsOnSale,
 		"image_spec_id":     createParam.ImageSpecId,
 		"image_spec_images": createParam.ImageSpecImages,
-		"sku_list":          createParam.SkuList,
 		"price":             createParam.Price,
 		"stock":             createParam.Stock,
 		"sale_time":         createParam.SaleTime,
@@ -252,12 +255,8 @@ func Update(c *gin.Context) {
 			specSign = append(specSign, v.ID)
 			specValueSign = append(specValueSign, v.ValueID)
 		}
-		specSignJ := util.JsonMarshal(specSign)
-		specValueSignJ := util.JsonMarshal(specValueSign)
 		// update.Skus[i].GoodsId = id
 		createParam.SkuList[i].Title = createParam.Title
-		createParam.SkuList[i].SpecSign = string(specSignJ)
-		createParam.SkuList[i].SpecValueSign = string(specValueSignJ)
 		err = dao.ComSku.Create(c, tx, &createParam.SkuList[i])
 		if err != nil {
 			tx.Rollback()

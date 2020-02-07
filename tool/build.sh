@@ -9,10 +9,9 @@ fi
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-OUT=${1:?"output path"}
-MUSES_SYSTEM=${2:?"version go package"}
-BUILDPATH=${3:?"path to build"}
-
+NAME=${1:?"app name"}
+OUT=${2:?"output path"}
+MUSES_SYSTEM=${3:?"version go package"}
 
 set -e
 
@@ -36,11 +35,10 @@ fi
 # at the beginning of the build and used throughout
 if [[ -z ${BUILDINFO} ]];then
     BUILDINFO=$(mktemp)
-    ${ROOT}/tool/version.sh > ${BUILDINFO}
+    ${ROOT}/tool/version.sh ${NAME}> ${BUILDINFO}
 fi
 
 echo ROOT       "${ROOT}"
-echo BUILDPATH   "${BUILDPATH}"
 echo GOBINARY          "${GOBINARY}"
 echo BUILDINFO          "${BUILDINFO}"
 echo V          "${V}"

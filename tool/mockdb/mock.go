@@ -50,7 +50,7 @@ func createCommodity(db *gorm.DB, endpoints, accessKeyId, accessKeySecret, bucke
 		Name:   "灰色",
 	})
 
-	db.Create(&mysql.Com{
+	comInfo := &mysql.Com{
 		Id:           0,
 		CreatedAt:    time.Date(2019, 10, 28, 23, 20, 31, 0, time.Local),
 		UpdatedAt:    time.Date(2019, 10, 28, 23, 20, 31, 0, time.Local),
@@ -65,7 +65,6 @@ func createCommodity(db *gorm.DB, endpoints, accessKeyId, accessKeySecret, bucke
 		UpdatedBy:    0,
 		Title:        "Ayuko 时髦气质毛呢外套 加棉可脱卸呢大衣",
 		SubTitle:     "Ayuko 时髦气质毛呢外套 加棉可脱卸呢大衣",
-		Cid:          1,
 		Cover:        key1_1,
 		Gallery:      mysql.ComGalleryJson{key1_1, key1_2, key1_3},
 		Stock:        100,
@@ -86,6 +85,7 @@ func createCommodity(db *gorm.DB, endpoints, accessKeyId, accessKeySecret, bucke
 		Html:         "",
 		WechatHtml:   "",
 		SkuList:      nil,
+		Cids:         []int{1},
 		SpecList: []mysql.ComSpecOneInfo{
 			mysql.ComSpecOneInfo{
 				Id:   1,
@@ -98,6 +98,13 @@ func createCommodity(db *gorm.DB, endpoints, accessKeyId, accessKeySecret, bucke
 				},
 			},
 		},
+	}
+
+	db.Create(comInfo)
+
+	db.Create(&mysql.ComRelateCate{
+		ComId: comInfo.Id,
+		Cid:   1,
 	})
 
 	db.Create(&mysql.Banner{
@@ -130,16 +137,14 @@ func createCommodity(db *gorm.DB, endpoints, accessKeyId, accessKeySecret, bucke
 				ValueName: "灰色",
 			},
 		},
-		Price:         0.01,
-		Stock:         100,
-		Code:          "",
-		Cover:         key1_1,
-		Weight:        0,
-		Title:         "灰色",
-		SaleNum:       0,
-		GroupSaleNum:  0,
-		SpecValueSign: "[1]",
-		SpecSign:      "[1]",
+		Price:        0.01,
+		Stock:        100,
+		Code:         "",
+		Cover:        key1_1,
+		Weight:       0,
+		Title:        "灰色",
+		SaleNum:      0,
+		GroupSaleNum: 0,
 	})
 
 	// 初始化规格
@@ -176,7 +181,6 @@ func createCommodity(db *gorm.DB, endpoints, accessKeyId, accessKeySecret, bucke
 		UpdatedBy:    0,
 		Title:        "韩国高腰牛仔短裤女2019夏季新款韩版宽松显瘦a字毛边阔腿热裤女",
 		SubTitle:     "韩国高腰牛仔短裤女2019夏季新款韩版宽松显瘦a字毛边阔腿热裤女",
-		Cid:          2,
 		Cover:        key2_1,
 		Gallery:      mysql.ComGalleryJson{key2_1, key2_2, key2_3, key2_4},
 		Stock:        100,
@@ -196,6 +200,7 @@ func createCommodity(db *gorm.DB, endpoints, accessKeyId, accessKeySecret, bucke
 		Markdown:     "",
 		Html:         "",
 		WechatHtml:   "",
+		Cids:         []int{2},
 		SkuList:      nil,
 		SpecList: []mysql.ComSpecOneInfo{
 			mysql.ComSpecOneInfo{
@@ -234,16 +239,14 @@ func createCommodity(db *gorm.DB, endpoints, accessKeyId, accessKeySecret, bucke
 				ValueName: "蓝色",
 			},
 		},
-		Price:         0.01,
-		Stock:         60,
-		Code:          "",
-		Cover:         key2_1,
-		Weight:        0,
-		Title:         "蓝色",
-		SaleNum:       0,
-		GroupSaleNum:  0,
-		SpecValueSign: "[2]",
-		SpecSign:      "[2]",
+		Price:        0.01,
+		Stock:        60,
+		Code:         "",
+		Cover:        key2_1,
+		Weight:       0,
+		Title:        "蓝色",
+		SaleNum:      0,
+		GroupSaleNum: 0,
 	})
 
 	db.Create(&mysql.ComSku{
@@ -257,16 +260,14 @@ func createCommodity(db *gorm.DB, endpoints, accessKeyId, accessKeySecret, bucke
 				ValueName: "白色",
 			},
 		},
-		Price:         0.01,
-		Stock:         40,
-		Code:          "",
-		Cover:         key2_2,
-		Weight:        0,
-		Title:         "白色",
-		SaleNum:       0,
-		GroupSaleNum:  0,
-		SpecValueSign: "[3]",
-		SpecSign:      "[2]",
+		Price:        0.01,
+		Stock:        40,
+		Code:         "",
+		Cover:        key2_2,
+		Weight:       0,
+		Title:        "白色",
+		SaleNum:      0,
+		GroupSaleNum: 0,
 	})
 
 }
@@ -319,23 +320,23 @@ type Info struct {
 	LabelIcon   string  `json:"labelIcon"`
 }
 
-func createAdminUser(db *gorm.DB)  {
+func createAdminUser(db *gorm.DB) {
 	pwdHash, err := util.Hash("egoshop")
 	if err != nil {
-		fmt.Println("err",err)
+		fmt.Println("err", err)
 		return
 	}
 	user := mysql.User{
-		Name:        "egoshop",
-		Password:    pwdHash,
-		Status:      1,
-		CreatedAt:   time.Now(),
-		UpdatedAt:   time.Now(),
-		LastLoginIP: "127.0.0.1",
-		LastLoginTime:time.Now(),
+		Name:          "egoshop",
+		Password:      pwdHash,
+		Status:        1,
+		CreatedAt:     time.Now(),
+		UpdatedAt:     time.Now(),
+		LastLoginIP:   "127.0.0.1",
+		LastLoginTime: time.Now(),
 	}
 	if err = db.Create(&user).Error; err != nil {
-		fmt.Println("err",err)
+		fmt.Println("err", err)
 		return
 	}
 }

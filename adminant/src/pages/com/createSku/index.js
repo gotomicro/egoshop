@@ -50,12 +50,20 @@ export default class Sku extends Component {
 
     constructor(props) {
         super(props);
+        this. initComSpecList()
         const skus = props.value || this.defaultValue;
         let specs = [];
-        let multiSkus = false;
+      //
+      //   console.log("skusskusskus",skus)
+      // console.log("skusskus1",skus.length)
+      // console.log("skusskus2",skus[0].spec.length)
+      // console.log("skusskus3",skus[0].spec[0]["id"])
+
+
+      let multiSkus = false;
         if (skus.length > 1) {
             // 通过skus重组specs，必须存在spec 否则第一条无法被添加
-            if (skus.length > 0 && skus[0].spec.length > 0 && skus[0].spec[0]["id"] > 0) {
+            if (skus[0].spec.length > 0 && skus[0].spec[0]["id"] > 0) {
                 multiSkus = true;
                 skus.map((e) => {
                     e.spec.map((skuSpec) => {
@@ -82,6 +90,8 @@ export default class Sku extends Component {
                 });
             }
         }
+
+        console.log("multiSkus",multiSkus)
 
         this.state = {
             id: props.id,
@@ -157,7 +167,7 @@ export default class Sku extends Component {
                 value: skus,
                 multiSkus,
                 specs,
-                // refresh: false
+                refresh: false
             })
         }
     }
@@ -328,7 +338,6 @@ export default class Sku extends Component {
 
     renderSingleSku = () => {
         const skus = this.state.value;
-        console.log("skus",skus)
         return <Fragment>
             <FormItem
                 {...formItemLayout}
@@ -734,6 +743,8 @@ export default class Sku extends Component {
     };
 
     static validator = (rule, skus, callback) => {
+        console.log("skusssssssssss",skus)
+
         // 单产品验证
         if (Array.isArray(skus) && skus.length === 1 && skus[0]["spec"] !== "undefined" && skus[0].spec.length === 1 && skus[0].spec[0].id === 0) {
             if (!skus[0].price) {
@@ -752,10 +763,10 @@ export default class Sku extends Component {
                 if (index === -1) {
                     callback();
                 } else {
-                    callback("请完善商品型号价格信息");
+                    callback("请完善商品型号价格信1息");
                 }
             } else {
-                callback("请完善商品型号价格信息");
+                callback("请完善商品型号价格信2息");
             }
 
         }

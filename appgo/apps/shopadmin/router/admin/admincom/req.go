@@ -14,7 +14,6 @@ type ReqList struct {
 
 type ReqCreateOrUpdate struct {
 	Id         int            `json:"id"`
-	Cid        int            `json:"cid"`
 	Title      string         `json:"title"`
 	SubTitle   string         `json:"subTitle"`
 	Gallery    []string       `json:"gallery"`

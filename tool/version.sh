@@ -1,5 +1,7 @@
 #!/bin/bash
 
+NAME=${1:?"app name"}
+
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 echo "${ROOT}"
@@ -30,6 +32,7 @@ elif [[ -n ${MY_VERSION} ]]; then
 fi
 
 # used by pkg/version
+echo buildName          "${NAME}"
 echo buildVersion       "${VERSION}"
 echo buildGitRevision   "${BUILD_GIT_REVISION}"
 echo buildUser          "$(whoami)"

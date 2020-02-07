@@ -2,7 +2,6 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/goecology/egoshop/appgo/apps/shopapi/pkg/bootstrap"
 	"github.com/goecology/egoshop/appgo/apps/shopapi/pkg/mus"
 	"github.com/goecology/egoshop/appgo/apps/shopapi/router/api/address"
 	"github.com/goecology/egoshop/appgo/apps/shopapi/router/api/apicom"
@@ -46,10 +45,8 @@ func apiGrp(r *gin.Engine) {
 		noAuthCommentGrp.GET("/listTop3", comment.ListTop3)
 	}
 
-	// 登录接口，不能加载这个中间件。否则死循环，登录不了
-	if !bootstrap.Arg.Local {
-		apiGrp.Use(mdw.WechatAccessMustLogin())
-	}
+
+	apiGrp.Use(mdw.WechatAccessMustLogin())
 
 	usersGrp := apiGrp.Group("/users")
 	{

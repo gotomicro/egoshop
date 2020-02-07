@@ -57,7 +57,7 @@
         addr = "127.0.0.1:3306"
         username = "root"
         password = "root"
-        db = "mi"
+        db = "egoshop"
         charset = "utf8"
         parseTime = "True"
         loc = "Local"

@@ -32,11 +32,13 @@ const FormItem = Form.Item;
   cateList: comcateModel.listData.list,
   cateTree: comcateModel.cateTree,
   cateListLoading: loading.effects["comcateModel/fetchList"],
+  comInfoLoading: loading.effects["comModel/fetchOne"],
 }))
 
 class GoodsEdit extends Component {
   static defaultProps = {
     cateListLoading: true,
+    comInfoLoading: true,
   };
   state = {
     photoGalleryVisible: false,
@@ -80,7 +82,6 @@ class GoodsEdit extends Component {
           payload: {
             ...values,
             id: oneData.id,
-            cid: parseInt(values.cid),
           },
           callback: (e) => {
             if (e.code === 0) {
@@ -104,7 +105,7 @@ class GoodsEdit extends Component {
     const { photoGalleryVisible, previewVisible, previewImage } = this.state;
     const { form, cateListLoading,cateList,cateTree,oneData } = this.props;
     const { cids,skuList } = oneData
-    const { getFieldDecorator} = form;
+    const { getFieldDecorator, getFieldValue, setFieldsValue } = form;
     const cateTreeSelect = Antd.treeData(cateTree);
 
     console.log("skuList",skuList)
@@ -121,7 +122,7 @@ class GoodsEdit extends Component {
       <PageHeaderWrapper hiddenBreadcrumb={true}>
         <Card bordered={false}>
           <Spin size="large" spinning={cateListLoading}>
-            <Form onSubmit={this.handleSubmit} style={{ width: 1000 }}>
+            { oneData.id > 0 && <Form onSubmit={this.handleSubmit} style={{ width: 1000 }}>
               <div className={styles.item}>
                 <h3>基本信息</h3>
                 <FormItem
@@ -191,7 +192,7 @@ class GoodsEdit extends Component {
                       showSearch
                       dropdownStyle={{ maxHeight: 400, overflow: "auto" }}
                       placeholder="请选择商品分类"
-                      allowClear
+                      allowClearsetFieldsValue
                       multiple
                       treeDefaultExpandAll
                       onChange={(value) => {
@@ -270,7 +271,7 @@ class GoodsEdit extends Component {
                   返回
                 </Button>
               </FormItem>
-            </Form>
+            </Form>}
             <PhotoGallery
               visible={photoGalleryVisible}
               onCancel={this.onCancelPhotoGallery}

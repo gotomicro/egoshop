@@ -4,12 +4,10 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/goecology/egoshop/appgo/apps/shopadmin/pkg/conf"
 	"github.com/goecology/egoshop/appgo/pkg/opensdk/wechatauth"
-	"github.com/goecology/muses"
 	"github.com/goecology/muses/pkg/cache/redis"
 	"github.com/goecology/muses/pkg/database/mysql"
 	"github.com/goecology/muses/pkg/logger"
 	musgin "github.com/goecology/muses/pkg/server/gin"
-	"github.com/goecology/muses/pkg/server/stat"
 	"github.com/goecology/muses/pkg/session/ginsession"
 	"github.com/jinzhu/gorm"
 	"github.com/milkbobo/gopay/client"
@@ -26,19 +24,7 @@ var (
 )
 
 // Init 初始化muses相关容器
-func Init(cfgFile string) {
-	if err := muses.Container(
-		cfgFile,
-		mysql.Register,
-		redis.Register,
-		musgin.Register,
-		stat.Register,
-		//tplbeego.Register,
-		ginsession.Register,
-	); err != nil {
-		panic(err)
-	}
-
+func Init() error {
 	Cfg = musgin.Config()
 	Db = mysql.Caller("egoshop")
 	Logger = logger.Caller("system")
@@ -67,5 +53,5 @@ func Init(cfgFile string) {
 		PrivateKey: nil,
 		PublicKey:  nil,
 	})
-
+	return nil
 }
