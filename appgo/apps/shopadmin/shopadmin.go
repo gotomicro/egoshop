@@ -23,9 +23,8 @@ func main() {
 		mysql.Register,
 		musgin.Register,
 	)
-	app.SetRouter(router.InitRouter)
+	app.SetGinRouter(router.InitRouter)
 	app.PreRun(mus.Init, conf.Init, service.Init)
-
 	err := app.Run()
 	if err != nil {
 		panic(err)
