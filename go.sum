@@ -64,7 +64,10 @@ github.com/go-playground/universal-translator v0.16.0/go.mod h1:1AnU7NaIRDWWzGEK
 github.com/go-sql-driver/mysql v1.4.1 h1:g24URVg0OFbNUTx9qqY1IRZ9D9z3iPyi5zKhQZpNwpA=
 github.com/go-sql-driver/mysql v1.4.1/go.mod h1:zAC/RDZ24gD3HViQzih4MyKcchzm+sOG5ZlKdlhCg5w=
 github.com/go-stack/stack v1.8.0/go.mod h1:v0f6uXyyMGvRgIKkXu+yp6POWl0qKG85gN/melR3HDY=
+github.com/goecology/muses v0.2.1 h1:MfY4zSbPApqXPsSQqDWA8FB7bxGzHRXENheJxXTvkS0=
 github.com/goecology/muses v0.2.1/go.mod h1:KJ8bicyW7OliSEObnRDyeH8t56eqbsXeWxE0uoaJoJ0=
+github.com/goecology/muses v0.2.2 h1:Dhc4E5hUKgKkT0w+VGCwbWVxBjcng5U4Vat5PMRgQM4=
+github.com/goecology/muses v0.2.2/go.mod h1:KJ8bicyW7OliSEObnRDyeH8t56eqbsXeWxE0uoaJoJ0=
 github.com/gogo/protobuf v1.1.1/go.mod h1:r8qH/GZQm5c6nD/R0oafs1akxWv10x8SbQlK7atdtwQ=
 github.com/gogo/protobuf v1.2.1/go.mod h1:hp+jE20tsWTFYpLwKvXlhS1hjn+gTNwPg2I6zVXpSg4=
 github.com/golang-sql/civil v0.0.0-20190719163853-cb61b32ac6fe h1:lXe2qZdvpiX5WZkZR4hgp4KJVfY3nMkvmwbVkpv1rVY=

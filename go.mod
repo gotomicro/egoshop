@@ -9,7 +9,7 @@ require (
 	github.com/gin-contrib/sessions v0.0.3
 	github.com/gin-gonic/gin v1.5.0
 	github.com/go-sql-driver/mysql v1.4.1
-	github.com/goecology/muses v0.2.1
+	github.com/goecology/muses v0.2.2
 	github.com/jinzhu/gorm v1.9.12
 	github.com/milkbobo/gopay v0.0.0-20190827061259-b850bcfc0c4d
 	github.com/pkg/errors v0.9.1
