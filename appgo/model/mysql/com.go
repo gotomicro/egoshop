@@ -42,7 +42,7 @@ type Com struct {
 	WechatHtml   string          `gorm:"-"json:"wechatHtml"`
 	SkuList      []ComSku        `gorm:"-"json:"skuList"`                   // 库存列表信息,冗余字段
 	SpecList     ComSpecListJson `gorm:"not null;type:json"json:"specList"` // 规格参数
-	Cids         []int           `gorm:"not null;"json:"cids"`
+	Cids         ComCidsJson           `gorm:"not null;type:json"json:"cids"`
 }
 
 func (*Com) TableName() string {
@@ -60,12 +60,12 @@ func (c *ComGalleryJson) Scan(input interface{}) error {
 }
 
 // 请在model/mysql/addition.json.go里定义ComCategoryIdsJson结构体
-func (c ComCategoryIdsJson) Value() (driver.Value, error) {
+func (c ComCidsJson) Value() (driver.Value, error) {
 	b, err := json.Marshal(c)
 	return string(b), err
 }
 
-func (c *ComCategoryIdsJson) Scan(input interface{}) error {
+func (c *ComCidsJson) Scan(input interface{}) error {
 	return json.Unmarshal(input.([]byte), c)
 }
 

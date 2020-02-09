@@ -1,0 +1,86 @@
+# 联调配置文件
+[app]
+    # local为本地存储,oss为oss存储
+    storeType = "oss"
+    [app.adminant]
+        public = "./adminant/"
+        static = "./adminant/static"
+        html = "./adminant/index.html"
+    # 微信小程序
+    [app.wechat]
+        appID = "xxxx"
+        appSecret = "xxx"
+    # 微信支付
+    [app.wechatpay]
+        appID = "xx"
+        mchID = "1111"
+        key = "xxxx"
+        callbackAPI = "https://xxxx/api/v1/wechat/callbackdev/payed_notify"
+[oss]
+    endpoint = "xxx.aliyuncs.com"
+    accessKeyID = "xxx"
+    accessKeySecret = "xxx"
+    cdnName = "http://xxx.xxx.com/"
+    bucket = "xxxx"
+[muses]
+    [muses.app]
+        name = "goecology"
+        env = "dev"
+        version = "1.0"
+        file = "local"
+    [muses.server.stat]
+        addr = ":19001"
+        writeTimeout = "1s"
+        readTimeout = "1s"
+    [muses.server.gin]
+        graceful = true
+        mode = "debug"
+        addr = ":9001"
+        writeTimeout = "10s"
+        readTimeout = "10s"
+        maxHeaderBytes = 100000000000000
+        enabledRecovery = true
+        enabledLogger = true
+        enabledMetric = true
+    [muses.session.gin]
+        name = "mysession"
+        size = 10
+        network = "tcp"
+        addr = "127.0.0.1:6379"
+        pwd = ""
+        keypairs = "secret"
+    [muses.logger.system]
+        debug = true
+        level = "debug"
+        path = "./system.log"
+    [muses.mysql.egoshop]
+        debug = true
+        level = "panic"
+        network = "tcp"
+        dialect = "mysql"
+        addr = "127.0.0.1:3306"
+        username = "root"
+        password = "root"
+        db = "egoshop"
+        charset = "utf8"
+        parseTime = "True"
+        loc = "Local"
+        timeout = "1s"
+        readTimeout = "1s"
+        writeTimeout = "1s"
+        maxOpenConns = 30
+        maxIdleConns = 10
+        connMaxLifetime = "300s"
+    [muses.redis.egoshop]
+        debug = true
+        addr = "127.0.0.1:6379"
+        network = "tcp"
+        db = 0
+        password = ""
+        connectTimeout = "1s"
+        readTimeout = "1s"
+        writeTimeout = "1s"
+        maxIdle = 5
+        maxActive = 20
+        idleTimeout = "60s"
+        wait = false

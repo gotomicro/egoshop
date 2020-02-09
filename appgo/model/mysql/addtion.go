@@ -17,7 +17,7 @@ type CreateSpecValue struct {
 	Name string `json:"name"`
 }
 
-type ComCategoryIdsJson []int
+type ComCidsJson []int
 
 type ComImageSpecImagesJson StringsJson
 

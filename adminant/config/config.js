@@ -173,12 +173,15 @@ export default {
     },
   },
   manifest: {
-    basePath: '/',
+    // basePath: '/public/',
+    basePath: '/public/',
   },
+  // base: '/public/', //最终输出路径
+  publicPath: '/public/',
   chainWebpack: webpackPlugin,
   proxy: {
     '/admin/': {
-      target: 'http://127.0.0.1:9002/',
+      target: 'http://127.0.0.1:9001/',
       changeOrigin: true, // pathRewrite: { '^/server': '' },
     },
   },
