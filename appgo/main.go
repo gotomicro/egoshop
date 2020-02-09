@@ -29,10 +29,10 @@ func main() {
 		cobraCommand.AddCommand(command.InstallCmd)
 	})
 	app.SetStartCommand(func(cobraCommand *cobra.Command) {
-		cobraCommand.PersistentFlags().StringVar(&command.Mode, "mode",  "all", "设置启动模式")
+		cobraCommand.PersistentFlags().StringVar(&command.Mode, "mode", "all", "设置启动模式")
 	})
 	app.SetGinRouter(router.InitRouter)
-	app.PreRun(mus.Init, conf.Init, service.Init)
+	app.PreRun(conf.Init, mus.Init, service.Init)
 	err := app.Run()
 	if err != nil {
 		panic(err)
