@@ -24,7 +24,12 @@ EgoShop详细介绍请看[文档](http://doc.egoshop.questionfans.com/ecology/)
 
 #### 小程序截图
 
+![adminant](./docs/img/miniwechat1.png)![adminant](./docs/img/miniwechat2.png)
+
 #### 后台截图
+
+![adminant](../static/adminant.png)
+
 
 #### 监控截图
 
