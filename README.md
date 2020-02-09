@@ -82,7 +82,7 @@ todo
 
 make install # 创建自己数据库结构
 
-make go # 运行小程序的go程序
+make go # 运行go程序
 
 make wechat # 运行小程序
 
