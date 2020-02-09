@@ -21,6 +21,7 @@ go:
 install:
 	@cd $(APPPATH)/appgo && $(APPPATH)/tool/build.sh $(APPNAME) $(APPOUT) $(MUSES_SYSTEM)
 	@cp $(APPPATH)/appgo/conf $(APPPATH)/build/ -R
+	@cp $(APPPATH)/appgo/mockdata $(APPPATH)/build/ -R
 	@cd $(APPPATH)/build && $(APPOUT) install --conf=conf/conf.toml
 
 all:
@@ -32,5 +33,5 @@ all:
 	@mv $(APPPATH)/build/dist $(APPPATH)/build/adminant
 	@cd $(APPPATH)/appuni && npm run build:mp-weixin
 	@cp $(APPPATH)/appuni/dist/build/mp-weixin $(APPPATH)/build/ -R
-	@tar -zxvf build.tar.gz build
+	@tar zxvf build.tar.gz build
 
