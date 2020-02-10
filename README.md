@@ -55,10 +55,10 @@ EgoShop详细介绍请看[文档](http://doc.egoshop.questionfans.com/ecology/)
 
 | 名称        | 特性1               | 特性2        | 特性3           |
 | ----------- | ------------------- | ------------ | --------------- |
-| 首页cache   | redis cache support | 接口 support | file cache todo |
-| 详情页cache | redis cache todo    | 接口 support | file cache todo |
-| 文件上传    | oss support         | file todo    |                 |
-| session     | redis support       | file todo    |                 |
+| 首页cache   | redis cache support | 接口 support | file cache support |
+| 详情页cache | redis cache support    | 接口 support | file cache support |
+| 文件上传    | oss support         | file support    |                 |
+| session     | redis support       | memory support    |                 |
 | jwt         | mysql support       | redis todo   | file todo       |
 | 可观测性    | prometheus support  |              |                 |
 
