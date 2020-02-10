@@ -12,6 +12,7 @@ import (
 	"github.com/goecology/egoshop/appgo/model/trans"
 	"github.com/goecology/egoshop/appgo/pkg/base"
 	"github.com/goecology/egoshop/appgo/pkg/code"
+	"github.com/goecology/muses/pkg/cache/mixcache"
 	"github.com/spf13/cast"
 	"time"
 )
@@ -28,7 +29,7 @@ func Index(c *gin.Context) {
 	}
 
 	cates, _ := dao.ComCate.List(c, mysql.Conds{"status": 1})
-	newProduct, err := mus.Redis.GetString("home:new")
+	newProduct, err := mixcache.String(mus.Mixcache.Get("home:new"))
 	if err != nil {
 		newProduct = "[]"
 	}

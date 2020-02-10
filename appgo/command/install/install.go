@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/goecology/egoshop/appgo/model/mysql"
 	"github.com/goecology/egoshop/appgo/pkg/util"
-	"github.com/goecology/muses/pkg/cache/redis"
+	"github.com/goecology/muses/pkg/cache/mixcache"
 	mmysql "github.com/goecology/muses/pkg/database/mysql"
 	"github.com/goecology/muses/pkg/oss"
 	"github.com/jinzhu/gorm"
@@ -69,20 +69,20 @@ func Mock() error {
 	mock(
 		mmysql.Caller("egoshop"),
 		oss.Caller("egoshop"),
-		redis.Caller("egoshop"),
+		mixcache.Caller("egoshop"),
 	)
 	return nil
 }
 
-func mock(db *gorm.DB, oClient *oss.Client, rclient *redis.Client) {
-	createCommodity(db, oClient, rclient)
+func mock(db *gorm.DB, oClient *oss.Client, rclient *mixcache.Client) {
+	createCommodity(db, oClient)
 	createAddressType(db)
 	createComCate(db)
 	createAdminUser(db)
 	createNew(db, rclient)
 }
 
-func createCommodity(db *gorm.DB, oClient *oss.Client, rclient *redis.Client) {
+func createCommodity(db *gorm.DB, oClient *oss.Client) {
 	var err error
 
 	key1_1 := oClient.GenerateKey("mock")
@@ -425,7 +425,7 @@ func createAdminUser(db *gorm.DB) {
 	}
 }
 
-func createNew(db *gorm.DB, rclient *redis.Client) {
+func createNew(db *gorm.DB, rclient *mixcache.Client) {
 	var output []mysql.Com
 	redisOutput := make([]Info, 0)
 	db.Where("id in (?)", []int{1, 2}).Find(&output)

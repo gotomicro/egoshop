@@ -36,7 +36,7 @@
         enabledLogger = true
         enabledMetric = true
     [muses.session.gin]
-        mode = "memstore"
+        mode = "memory"
         name = "mysession"
         keypairs = "secret"
     [muses.logger.system]
@@ -61,19 +61,9 @@
         maxOpenConns = 30
         maxIdleConns = 10
         connMaxLifetime = "300s"
-    [muses.redis.egoshop]
-        debug = true
-        addr = "127.0.0.1:6379"
-        network = "tcp"
-        db = 0
-        password = ""
-        connectTimeout = "1s"
-        readTimeout = "1s"
-        writeTimeout = "1s"
-        maxIdle = 5
-        maxActive = 20
-        idleTimeout = "60s"
-        wait = false
+    [muses.mixcache.egoshop]
+        mode = "leveldb"
+        levelDbPath = "leveldb"
     [muses.oss.egoshop]
         mode = "file"
         isDeleteSrcPath = true

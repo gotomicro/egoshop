@@ -7,7 +7,7 @@ import (
 	"github.com/goecology/egoshop/appgo/router"
 	"github.com/goecology/egoshop/appgo/service"
 	"github.com/goecology/muses"
-	"github.com/goecology/muses/pkg/cache/redis"
+	"github.com/goecology/muses/pkg/cache/mixcache"
 	"github.com/goecology/muses/pkg/cmd"
 	"github.com/goecology/muses/pkg/database/mysql"
 	"github.com/goecology/muses/pkg/oss"
@@ -21,7 +21,7 @@ func main() {
 	app := muses.Container(
 		cmd.Register,
 		stat.Register,
-		redis.Register,
+		mixcache.Register,
 		mysql.Register,
 		musgin.Register,
 		oss.Register,

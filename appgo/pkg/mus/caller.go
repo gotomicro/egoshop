@@ -4,7 +4,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/goecology/egoshop/appgo/pkg/conf"
 	"github.com/goecology/egoshop/appgo/pkg/opensdk/wechatauth"
-	"github.com/goecology/muses/pkg/cache/redis"
+	"github.com/goecology/muses/pkg/cache/mixcache"
 	"github.com/goecology/muses/pkg/database/mysql"
 	"github.com/goecology/muses/pkg/logger"
 	"github.com/goecology/muses/pkg/oss"
@@ -19,10 +19,10 @@ var (
 	Logger     *logger.Client
 	Gin        *gin.Engine
 	Db         *gorm.DB
-	Redis      *redis.Client
 	WechatAuth *wechatauth.WxConfig
 	Session    gin.HandlerFunc
 	Oss        *oss.Client
+	Mixcache   *mixcache.Client
 )
 
 // Init 初始化muses相关容器
@@ -32,7 +32,7 @@ func Init() error {
 	Logger = logger.Caller("system")
 	Gin = musgin.Caller()
 	Oss = oss.Caller("egoshop")
-	Redis = redis.Caller("egoshop")
+	Mixcache = mixcache.Caller("egoshop")
 	Session = ginsession.Caller()
 	WechatAuth = &wechatauth.WxConfig{
 		AppID:  conf.Conf.App.Wechat.AppID,
