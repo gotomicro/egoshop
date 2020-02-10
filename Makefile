@@ -24,6 +24,12 @@ install:
 	@cp $(APPPATH)/appgo/mockdata $(APPPATH)/build/ -R
 	@cd $(APPPATH)/build && $(APPOUT) install --conf=conf/conf.toml
 
+install.clear:
+	@cd $(APPPATH)/appgo && $(APPPATH)/tool/build.sh $(APPNAME) $(APPOUT) $(MUSES_SYSTEM)
+	@cp $(APPPATH)/appgo/conf $(APPPATH)/build/ -R
+	@cp $(APPPATH)/appgo/mockdata $(APPPATH)/build/ -R
+	@cd $(APPPATH)/build && $(APPOUT) install --conf=conf/conf.toml --clear=true
+
 all:
 	@rm -r $(APPPATH)/build
 	@cd $(APPPATH)/appgo && $(APPPATH)/tool/build.sh $(APPNAME) $(APPOUT) $(MUSES_SYSTEM)

@@ -5,15 +5,14 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/goecology/egoshop/appgo/pkg/mus"
-	"github.com/goecology/egoshop/appgo/router/mdw"
 	"github.com/goecology/egoshop/appgo/dao"
 	"github.com/goecology/egoshop/appgo/model/constx"
 	"github.com/goecology/egoshop/appgo/model/mysql"
 	"github.com/goecology/egoshop/appgo/model/trans"
 	"github.com/goecology/egoshop/appgo/pkg/base"
 	"github.com/goecology/egoshop/appgo/pkg/code"
-	"github.com/goecology/egoshop/appgo/pkg/imagex"
+	"github.com/goecology/egoshop/appgo/pkg/mus"
+	"github.com/goecology/egoshop/appgo/router/mdw"
 	"github.com/spf13/cast"
 )
 
@@ -256,7 +255,7 @@ func List(c *gin.Context) {
 				GoodsId:     value.GoodsId,
 				TypeId:      value.TypeId,
 				Name:        info.Title,
-				Cover:       imagex.ShowImg(info.Cover, "x1"),
+				Cover:       mus.Oss.ShowImg(info.Cover, "x1"),
 				CreatedName: userInfo.Nickname,
 				TypeName:    "商品",
 			})

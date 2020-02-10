@@ -10,6 +10,7 @@ import (
 	"github.com/goecology/muses/pkg/cache/redis"
 	"github.com/goecology/muses/pkg/cmd"
 	"github.com/goecology/muses/pkg/database/mysql"
+	"github.com/goecology/muses/pkg/oss"
 	musgin "github.com/goecology/muses/pkg/server/gin"
 	"github.com/goecology/muses/pkg/server/stat"
 	"github.com/goecology/muses/pkg/session/ginsession"
@@ -23,6 +24,7 @@ func main() {
 		redis.Register,
 		mysql.Register,
 		musgin.Register,
+		oss.Register,
 		ginsession.Register,
 	)
 	app.SetRootCommand(func(cobraCommand *cobra.Command) {

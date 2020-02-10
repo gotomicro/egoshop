@@ -1,12 +1,11 @@
 package dao
 
 import (
-	"time"
-
 	"github.com/gin-gonic/gin"
 	"github.com/goecology/egoshop/appgo/model/mysql"
 	"github.com/goecology/egoshop/appgo/model/trans"
-	"github.com/goecology/egoshop/appgo/pkg/imagex"
+	"github.com/goecology/egoshop/appgo/pkg/mus"
+	"time"
 )
 
 func (g *cart) ListAddition(c *gin.Context, uid int, ids []int, reqList *trans.ReqPage) (output []mysql.Cart, cnt int) {
@@ -74,7 +73,7 @@ func (g *cart) ListAddition(c *gin.Context, uid int, ids []int, reqList *trans.R
 			cartInfo.ComSpec = skuInfo.Spec
 			cartInfo.ComWeight = skuInfo.Weight
 			cartInfo.Stock = skuInfo.Stock
-			cartInfo.Cover = imagex.ShowImg(skuInfo.Cover, "x1")
+			cartInfo.Cover = mus.Oss.ShowImg(skuInfo.Cover, "x1")
 			cartInfo.ComFreightAreas = freightInfo.Areas
 
 			// todo 统一所有的商品的售卖

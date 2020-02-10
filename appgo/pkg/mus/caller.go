@@ -7,6 +7,7 @@ import (
 	"github.com/goecology/muses/pkg/cache/redis"
 	"github.com/goecology/muses/pkg/database/mysql"
 	"github.com/goecology/muses/pkg/logger"
+	"github.com/goecology/muses/pkg/oss"
 	musgin "github.com/goecology/muses/pkg/server/gin"
 	"github.com/goecology/muses/pkg/session/ginsession"
 	"github.com/jinzhu/gorm"
@@ -21,6 +22,7 @@ var (
 	Redis      *redis.Client
 	WechatAuth *wechatauth.WxConfig
 	Session    gin.HandlerFunc
+	Oss        *oss.Client
 )
 
 // Init 初始化muses相关容器
@@ -29,6 +31,7 @@ func Init() error {
 	Db = mysql.Caller("egoshop")
 	Logger = logger.Caller("system")
 	Gin = musgin.Caller()
+	Oss = oss.Caller("egoshop")
 	Redis = redis.Caller("egoshop")
 	Session = ginsession.Caller()
 	WechatAuth = &wechatauth.WxConfig{

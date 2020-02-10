@@ -3,14 +3,11 @@ package image
 import (
 	"encoding/base64"
 	"errors"
-	"github.com/goecology/egoshop/appgo/service"
+	"github.com/goecology/egoshop/appgo/model/constx"
 	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
-
-	"github.com/spf13/viper"
-
 	"github.com/gin-gonic/gin"
 	"github.com/goecology/egoshop/appgo/pkg/conf"
 	"github.com/goecology/egoshop/appgo/pkg/mus"
@@ -49,32 +46,31 @@ func Create(c *gin.Context) {
 	fileName := imagex.GenerateUniqueMd5()
 	rootPath, _ := imagex.GeneratePath(reqModel.Space)
 
-	filePath := filepath.Join(rootPath, fileName+ext)
+	srcPath := filepath.Join(rootPath, fileName+ext)
 
-	path := filepath.Dir(filePath)
+	path := filepath.Dir(srcPath)
 
 	os.MkdirAll(path, os.ModePerm)
 
-	err := ioutil.WriteFile(filePath, b64dataDecode, 0666) // buffer输出到jpg文件中（不做处理，直接写到文件）
+	err := ioutil.WriteFile(srcPath, b64dataDecode, 0666) // buffer输出到jpg文件中（不做处理，直接写到文件）
 	if err != nil {
 		base.JSONErr(c, code.MsgErr, err)
 		return
 	}
-
-	prefix := service.Oss.OssPrefix(reqModel.OssType)
+	prefix, _ := constx.OssMap[reqModel.OssType]
 	if prefix == "" {
 		base.JSONErr(c, 10003, errors.New("not exist type"))
 		return
 	}
 
-	key := service.Oss.Key(prefix)
-	err = service.Oss.PutObj(viper.GetString("oss.bucket"), key, filePath)
+	dstPath := mus.Oss.GenerateKey(prefix)
+	err = mus.Oss.PutObjectFromFile(dstPath, srcPath)
 	if err != nil {
 		base.JSONErr(c, 10004, err)
 		return
 	}
 
-	url, err := service.Oss.GetObjURL(viper.GetString("oss.bucket"), key)
+	url, err := mus.Oss.SignURL(dstPath, "GET", 120)
 	if err != nil {
 		base.JSONErr(c, 10005, err)
 		return
@@ -85,7 +81,7 @@ func Create(c *gin.Context) {
 		UpdatedBy: mdw.DefaultContextUser(c).Id,
 		Name:      fileName,
 		Type:      dataType,
-		Url:       key,
+		Url:       dstPath,
 	}
 	if err := dao.Image.Create(c, mus.Db, &faImage); err != nil {
 		base.JSONErr(c, code.MsgErr, err)

@@ -12,7 +12,6 @@ import (
 	"github.com/goecology/egoshop/appgo/model/trans"
 	"github.com/goecology/egoshop/appgo/pkg/base"
 	"github.com/goecology/egoshop/appgo/pkg/code"
-	"github.com/goecology/egoshop/appgo/pkg/imagex"
 	"github.com/spf13/cast"
 	"time"
 )
@@ -24,7 +23,7 @@ func Index(c *gin.Context) {
 	banners, _ := dao.Banner.List(c, mysql.Conds{})
 
 	for idx, value := range banners {
-		value.Image = imagex.ShowImg(value.Image, "")
+		value.Image = mus.Oss.ShowImg(value.Image, "")
 		banners[idx] = value
 	}
 
@@ -81,7 +80,7 @@ func List(c *gin.Context) {
 		},
 	}, &reqPage)
 	for idx, value := range resp {
-		value.Cover = imagex.ShowImg(value.Cover, "")
+		value.Cover = mus.Oss.ShowImg(value.Cover, "")
 		resp[idx] = value
 	}
 	base.JSONWechatList(c, resp, total, reqPage.PageSize)
@@ -93,8 +92,8 @@ func Info(c *gin.Context) {
 		base.JSON(c, code.MsgErr)
 		return
 	}
-	comInfo.Gallery = imagex.ShowImgArr(comInfo.Gallery, "")
-	comInfo.Cover = imagex.ShowImg(comInfo.Cover, "")
+	comInfo.Gallery = mus.Oss.ShowImgArr(comInfo.Gallery, "")
+	comInfo.Cover = mus.Oss.ShowImg(comInfo.Cover, "")
 	uid, flag := mdw.WechatMaybeUid(c)
 	// 如果存在用户登录，才记录浏览记录
 	if flag {

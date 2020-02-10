@@ -118,7 +118,7 @@ func salt(secret string) (string, error) {
 }
 
 func saltSecret() (string, error) {
-	rb := make([]byte, randInt(10, 100))
+	rb := make([]byte, randInt(10, 50))
 	_, err := rand.Read(rb)
 	if err != nil {
 		return "", err

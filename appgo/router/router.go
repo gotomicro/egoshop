@@ -44,6 +44,7 @@ func InitRouter() *gin.Engine {
 	})
 	r.Static("/public/",viper.GetString("app.adminant.public"))
 	r.Static("/static/",viper.GetString("app.adminant.static"))
+	r.Static("/"+viper.GetString("app.osspic"),viper.GetString("app.osspic"))
 	return r
 }
 

@@ -17,39 +17,6 @@ const (
 	StoreOss   string = "oss"
 )
 
-//操作图片显示
-//如果用的是oss存储，这style是avatar、cover可选项
-func ShowImg(img string, style ...string) (url string) {
-	if strings.HasPrefix(img, "https://") || strings.HasPrefix(img, "http://") {
-		return img
-	}
-	img = strings.TrimLeft(img, "./")
-	switch viper.GetString("app.storeType") {
-	case StoreOss:
-		s := ""
-		if len(style) > 0 && strings.TrimSpace(style[0]) != "" {
-			s = "/" + style[0]
-		}
-		url = img + s
-	case StoreLocal:
-		url = img
-	}
-	// 说明没有图片，给个默认图片
-	if url == "/" {
-		url = "/static/images/book.png"
-	}
-	// 适应小程序
-	url = viper.GetString("oss.cdnName") + url
-	return
-}
-
-func ShowImgArr(imgs []string, style ...string) (urlArr []string) {
-	urlArr = make([]string, 0)
-	for _, img := range imgs {
-		urlArr = append(urlArr, ShowImg(img, style...))
-	}
-	return
-}
 
 func FilterImgArr(imgs []string) (urlArr []string) {
 	urlArr = make([]string, 0)

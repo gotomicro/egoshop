@@ -4,17 +4,16 @@ import (
 	"fmt"
 	"github.com/goecology/egoshop/appgo/model/mysql"
 	"github.com/goecology/egoshop/appgo/pkg/util"
-	"github.com/goecology/egoshop/appgo/service"
 	"github.com/goecology/muses/pkg/cache/redis"
 	mmysql "github.com/goecology/muses/pkg/database/mysql"
-	"github.com/goecology/muses/pkg/logger"
+	"github.com/goecology/muses/pkg/oss"
 	"github.com/jinzhu/gorm"
-	"github.com/spf13/viper"
 	"time"
 )
+
 var Models []interface{}
 
-func init()  {
+func init() {
 	Models = []interface{}{
 		&mysql.Banner{},
 		&mysql.Com{},
@@ -66,64 +65,59 @@ func Create(isClear bool) error {
 	return nil
 }
 
-func Mock() error  {
+func Mock() error {
 	mock(
 		mmysql.Caller("egoshop"),
-		viper.GetString("oss.endpoint"),
-		viper.GetString("oss.accessKeyID"),
-		viper.GetString("oss.accessKeySecret"),
-		viper.GetString("oss.bucket"),
+		oss.Caller("egoshop"),
 		redis.Caller("egoshop"),
 	)
 	return nil
 }
 
-
-func mock(db *gorm.DB, endpoints, accessKeyId, accessKeySecret, bucketName string, rclient *redis.Client) {
-	createCommodity(db, endpoints, accessKeyId, accessKeySecret, bucketName)
+func mock(db *gorm.DB, oClient *oss.Client, rclient *redis.Client) {
+	createCommodity(db, oClient, rclient)
 	createAddressType(db)
 	createComCate(db)
 	createAdminUser(db)
 	createNew(db, rclient)
 }
 
-func createCommodity(db *gorm.DB, endpoints, accessKeyId, accessKeySecret, bucketName string) {
+func createCommodity(db *gorm.DB, oClient *oss.Client, rclient *redis.Client) {
 	var err error
-	service.InitOssCli(endpoints, accessKeyId, accessKeySecret, bucketName, logger.DefaultLogger())
 
-	key1_1 := service.Oss.Key("mock")
-	key1_2 := service.Oss.Key("mock")
-	key1_3 := service.Oss.Key("mock")
-	key2_1 := service.Oss.Key("mock")
-	key2_2 := service.Oss.Key("mock")
-	key2_3 := service.Oss.Key("mock")
-	key2_4 := service.Oss.Key("mock")
+	key1_1 := oClient.GenerateKey("mock")
+	key1_2 := oClient.GenerateKey("mock")
+	key1_3 := oClient.GenerateKey("mock")
+	key2_1 := oClient.GenerateKey("mock")
+	key2_2 := oClient.GenerateKey("mock")
+	key2_3 := oClient.GenerateKey("mock")
+	key2_4 := oClient.GenerateKey("mock")
 
-	err = service.Oss.PutObj(bucketName, key1_1, "./mockdata/1_1.jpg")
+	err = oClient.PutObjectFromFile(key1_1, "./mockdata/1_1.jpg")
 	if err != nil {
 		panic(err)
 	}
-	err = service.Oss.PutObj(bucketName, key1_2, "./mockdata/1_2.jpg")
+	err = oClient.PutObjectFromFile(key1_2, "./mockdata/1_2.jpg")
 	if err != nil {
 		panic(err)
 	}
-	err = service.Oss.PutObj(bucketName, key1_3, "./mockdata/1_3.jpg")
+	err = oClient.PutObjectFromFile(key1_3, "./mockdata/1_3.jpg")
 	if err != nil {
 		panic(err)
 	}
-	err = service.Oss.PutObj(bucketName, key2_1, "./mockdata/2_1.jpg")
+	err = oClient.PutObjectFromFile(key2_1, "./mockdata/2_1.jpg")
 	if err != nil {
 		panic(err)
 	}
-	err = service.Oss.PutObj(bucketName, key2_2, "./mockdata/2_2.jpg")
+	err = oClient.PutObjectFromFile(key2_2, "./mockdata/2_2.jpg")
 	if err != nil {
 		panic(err)
 	}
-	err = service.Oss.PutObj(bucketName, key2_3, "./mockdata/2_3.jpg")
+	err = oClient.PutObjectFromFile(key2_3, "./mockdata/2_3.jpg")
 	if err != nil {
 		panic(err)
 	}
-	err = service.Oss.PutObj(bucketName, key2_4, "./mockdata/2_4.jpg")
+	err = oClient.PutObjectFromFile(key2_4, "./mockdata/2_4.jpg")
 	if err != nil {
 		panic(err)
 	}
@@ -449,4 +443,3 @@ func createNew(db *gorm.DB, rclient *redis.Client) {
 	rclient.Set("home:new", redisOutput, 0)
 
 }
-

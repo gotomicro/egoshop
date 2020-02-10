@@ -5,6 +5,7 @@ import (
 	"github.com/goecology/muses"
 	"github.com/goecology/muses/pkg/cache/redis"
 	mmysql "github.com/goecology/muses/pkg/database/mysql"
+	"github.com/goecology/muses/pkg/oss"
 	"github.com/spf13/cobra"
 )
 
@@ -29,6 +30,7 @@ func init() {
 func installCmd(cmd *cobra.Command, args []string) {
 	app := muses.Container(
 		mmysql.Register,
+		oss.Register,
 		redis.Register,
 	)
 	app.SetCfg(ConfigPath)

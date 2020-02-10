@@ -1,7 +1,6 @@
 # 联调配置文件
 [app]
-    # local为本地存储,oss为oss存储
-    storeType = "oss"
+    osspic = "osspic"
     [app.adminant]
         public = "./adminant/"
         static = "./adminant/static"
@@ -16,12 +15,6 @@
         mchID = "1111"
         key = "xxxx"
         callbackAPI = "https://xxxx/api/v1/wechat/callbackdev/payed_notify"
-[oss]
-    endpoint = "xxx.aliyuncs.com"
-    accessKeyID = "xxx"
-    accessKeySecret = "xxx"
-    cdnName = "http://xxx.xxx.com/"
-    bucket = "xxxx"
 [muses]
     [muses.app]
         name = "goecology"
@@ -43,11 +36,8 @@
         enabledLogger = true
         enabledMetric = true
     [muses.session.gin]
+        mode = "memstore"
         name = "mysession"
-        size = 10
-        network = "tcp"
-        addr = "127.0.0.1:6379"
-        pwd = ""
         keypairs = "secret"
     [muses.logger.system]
         debug = true
@@ -84,3 +74,8 @@
         maxActive = 20
         idleTimeout = "60s"
         wait = false
+    [muses.oss.egoshop]
+        mode = "file"
+        isDeleteSrcPath = true
+        cdnName = "http://127.0.0.1:9001/osspic/"
+        fileBucket = "osspic"

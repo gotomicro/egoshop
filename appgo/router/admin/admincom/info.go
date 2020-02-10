@@ -6,17 +6,15 @@ import (
 	"strings"
 	"time"
 
-	"github.com/goecology/egoshop/appgo/pkg/imagex"
-
 	"github.com/gin-gonic/gin"
-	"github.com/goecology/egoshop/appgo/pkg/mus"
-	"github.com/goecology/egoshop/appgo/router/mdw"
 	"github.com/goecology/egoshop/appgo/dao"
 	"github.com/goecology/egoshop/appgo/model/mysql"
 	"github.com/goecology/egoshop/appgo/model/trans"
 	"github.com/goecology/egoshop/appgo/pkg/base"
 	"github.com/goecology/egoshop/appgo/pkg/code"
+	"github.com/goecology/egoshop/appgo/pkg/mus"
 	"github.com/goecology/egoshop/appgo/pkg/util"
+	"github.com/goecology/egoshop/appgo/router/mdw"
 	"github.com/spf13/cast"
 	"github.com/thoas/go-funk"
 )
@@ -62,7 +60,7 @@ func List(c *gin.Context) {
 			"com_id": comInfo.Id,
 		})
 		comInfo.SkuList = resp
-		comInfo.Cover = imagex.ShowImg(comInfo.Cover, "x1")
+		comInfo.Cover = mus.Oss.ShowImg(comInfo.Cover, "x1")
 		list[idx] = comInfo
 	}
 
@@ -88,7 +86,7 @@ func One(c *gin.Context) {
 
 	comInfo.SkuList = resp
 	comInfo.Cids = cids
-	comInfo.Gallery = imagex.ShowImgArr(comInfo.Gallery,"")
+	comInfo.Gallery = mus.Oss.ShowImgArr(comInfo.Gallery,"")
 	base.JSON(c, code.MsgOk, comInfo)
 }
 
