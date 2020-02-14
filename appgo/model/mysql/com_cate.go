@@ -18,6 +18,13 @@ type ComCate struct {
 	Sort      int        `gorm:"not null"json:"sort" form:"sort" ` //
 	Status    int        `gorm:"not null"json:"status"`
 	Remark    string     `gorm:"not null"json:"remark"`
+	PartId    int        `gorm:"not null"json:"partid"`   //部门分类
+	TypeId    int        `gorm:"not null"json:"typeid"`   //分类用途
+	UrlName   string     `gorm:"not null"json:"urlname"`  //url前缀
+	Tags      string     `gorm:"not null"json:"tags"`     //tags标签
+	IdPath    string     `gorm:"not null"json:"idpath"`   //id路径
+	LocalUrl  string     `gorm:"not null"json:"localurl"` //跳转路径
+
 }
 
 func (*ComCate) TableName() string {
