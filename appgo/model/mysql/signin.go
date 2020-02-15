@@ -11,6 +11,7 @@ type Signin struct {
 	Uid       int       `gorm:"not null"`
 	Point     int       `gorm:"not null"`
 	SigninCnt int       `gorm:"not null"`
+	PartId    int       `gorm:"not null"json:"partid"` //部门分类
 }
 
 func (*Signin) TableName() string {

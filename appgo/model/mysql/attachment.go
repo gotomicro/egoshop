@@ -17,6 +17,7 @@ type Attachment struct {
 	HttpPath  string     `gorm:"not null;comment:'注释'"json:"httpPath"`
 	FileExt   string     `gorm:"not null;comment:'注释'"json:"fileExt"`
 	CreatedBy int        `gorm:"not null;comment:'注释'"json:"createdBy"`
+	PartId    int        `gorm:"not null"json:"partid"` //部门分类
 }
 
 func (*Attachment) TableName() string {

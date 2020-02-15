@@ -14,7 +14,7 @@ type OrderLog struct {
 	Role       string     `gorm:"not null;"json:"role"`       // 操作角色
 	UpdatedBy  int        `gorm:"not null;"json:"updatedBy"`  // 操作人
 	OrderState int        `gorm:"not null;"json:"orderState"` // 订单状态[0已取消 10默认未付款 20已付款 30已发货 40已收货]
-
+	PartId     int        `gorm:"not null"json:"partid"`      //部门分类
 }
 
 func (*OrderLog) TableName() string {

@@ -38,6 +38,7 @@ type OrderGoods struct {
 	ComRevisePrice    float64 `gorm:"not null;"json:"comRevisePrice"`    // 修改过的商品实际支付费用 大于0起作用
 	RefundState       int     `gorm:"-"json:"refundState"`               // 退款状态
 	IsRefund          int     `gorm:"-"json:"isRefund"`                  // 是否退款
+	PartId            int     `gorm:"not null"json:"partid"`             //部门分类
 }
 
 func (*OrderGoods) TableName() string {

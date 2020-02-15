@@ -19,6 +19,7 @@ type Banner struct {
 	Enable    int        `gorm:"not null;"json:"enable"`    // 是否显示
 	StartTime int64      `gorm:"not null;"json:"startTime"` // 开始时间
 	EndTime   int64      `gorm:"not null;"json:"endTime"`   // 结束时间
+	PartId    int        `gorm:"not null"json:"partid"`     //部门分类
 
 }
 

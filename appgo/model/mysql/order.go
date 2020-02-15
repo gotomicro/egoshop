@@ -41,6 +41,7 @@ type Order struct {
 	EvaluateState      int        `gorm:"not null;"json:"evaluateState"`      // 评价状态 0未评价，1已评价
 	PayableTime        int64      `gorm:"not null;"json:"payableTime"`        // 订单可支付时间 下单时间+24小时 时间戳
 	OutRequestNo       string     `gorm:"not null;"json:"outRequestNo"`       // 支付宝标识一次退款请求，同一笔交易多次退款需要保证唯一，如需部分退款，则此参数必传。
+	PartId             int        `gorm:"not null"json:"partid"`              //部门分类
 }
 
 func (*Order) TableName() string {

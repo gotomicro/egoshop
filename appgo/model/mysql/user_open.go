@@ -31,6 +31,7 @@ type UserOpen struct {
 	Email        string     `gorm:"not null;"json:"email"`             // 邮箱
 	Name         string     `gorm:"not null;"json:"name"`              // 用户在所有平台唯一昵称
 	Intro        string     `gorm:"not null;"json:"intro"`
+	PartId       int        `gorm:"not null"json:"partid"` //部门分类
 }
 
 func (*UserOpen) TableName() string {

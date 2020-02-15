@@ -13,6 +13,7 @@ type ComStore struct {
 	WechatHtml  string    `gorm:"not null;type:text;comment:'注释'"json:"wechatHtml"`
 	CreatedBy   int       `gorm:"not null;comment:'注释'"json:"createdBy"`
 	UpdatedBy   int       `gorm:"not null;comment:'注释'"json:"updatedBy"`
+	PartId      int       `gorm:"not null"json:"partid"` //部门分类
 }
 
 func (*ComStore) TableName() string {

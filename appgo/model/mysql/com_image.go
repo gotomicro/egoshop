@@ -11,6 +11,7 @@ type ComImage struct {
 	IsDefault int        `gorm:"not null;"json:"isDefault"` // 默认主题，1是，0否
 	DeletedAt *time.Time `gorm:"index"json:"deletedAt"`
 	CreatedAt time.Time  `gorm:""json:"createdAt"`
+	PartId    int        `gorm:"not null"json:"partid"` //部门分类
 }
 
 func (*ComImage) TableName() string {

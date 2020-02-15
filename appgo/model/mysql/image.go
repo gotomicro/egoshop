@@ -17,6 +17,7 @@ type Image struct {
 	Size      float64    `gorm:"not null;"json:"size" form:"size" ` //
 	Type      string     `gorm:"not null;"json:"type" form:"type" ` //
 	Url       string     `gorm:"not null;"json:"url" form:"url" `   //
+	PartId    int        `gorm:"not null"json:"partid"`             //部门分类
 
 }
 

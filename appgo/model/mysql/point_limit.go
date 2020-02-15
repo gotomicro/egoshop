@@ -12,6 +12,7 @@ type PointLimit struct {
 	Uid             int       `gorm:"not null"`
 	Limit1          int       `gorm:"not null;comment:'目前有多少积分'"`
 	Limit1UpdatedAt time.Time ``
+	PartId          int       `gorm:"not null"json:"partid"` //部门分类
 }
 
 func (*PointLimit) TableName() string {

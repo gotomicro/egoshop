@@ -9,6 +9,7 @@ type ComSpec struct {
 	CreatedAt time.Time  `json:"createdAt"`
 	UpdatedAt time.Time  `json:"updatedAt"`
 	DeletedAt *time.Time `gorm:"index"json:"deletedAt"` // 软删除时间
+	PartId    int        `gorm:"not null"json:"partid"` //部门分类
 }
 
 func (*ComSpec) TableName() string {

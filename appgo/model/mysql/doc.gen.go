@@ -36,7 +36,7 @@ type Doc struct {
 	CateId        int        `json:"cate_id" form:"cate_id" `                   // 分类id[1纯文档 2试卷 3习题答案 4学霸笔记 5PPT 6视频 7实体]
 	MainResType   int        `json:"main_res_type" form:"main_res_type" `       // 主体资源类型[1pdf 2img 3ppt 4word 5txt 6markdown 7excel]
 	Document      string     `json:"document" form:"document" `                 //
-
+	PartId        int        `gorm:"not null"json:"partid"`                     //部门分类
 }
 
 func (*Doc) TableName() string {

@@ -12,7 +12,7 @@ type OrderPay struct {
 	PaySn     string     `gorm:"not null;"json:"paySn"`
 	Uid       int        `gorm:"not null;"json:"uid"`
 	PayState  int        `gorm:"not null;"json:"payState"` // 支付状态[0默认未支付 1已支付 只有第三方支付接口通知到时才会更改此状态]
-
+	PartId    int        `gorm:"not null"json:"partid"`    //部门分类
 }
 
 func (*OrderPay) TableName() string {

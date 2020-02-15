@@ -20,6 +20,7 @@ type UserGoods struct {
 	IsShare   int        `gorm:"not null;"json:"isShare"`         // 是否分享
 	IsPrePay  int        `gorm:"not null;"json:"isPrePay"`        // 是否预购买
 	IsRead    int        `gorm:"not null;"json:"isRead"`          // 是否阅读
+	PartId    int        `gorm:"not null"json:"partid"`           //部门分类
 }
 
 func (*UserGoods) TableName() string {

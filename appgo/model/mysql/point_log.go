@@ -10,6 +10,7 @@ type PointLog struct {
 	Uid       int       `gorm:"not null"`
 	TypeId    int       `gorm:"not null"`
 	Point     int       `gorm:"not null"`
+	PartId    int       `gorm:"not null"json:"partid"` //部门分类
 }
 
 func (*PointLog) TableName() string {

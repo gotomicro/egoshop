@@ -32,6 +32,7 @@ type User struct {
 	Wxpay         string     `gorm:"not null;"json:"wxpay"`       //
 	Alipay        string     `gorm:"not null;"json:"alipay"`      //
 	RoleName      string     `gorm:"-"`
+	PartId        int        `gorm:"not null"json:"partid"` //部门分类
 }
 
 func (*User) TableName() string {

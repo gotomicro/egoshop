@@ -20,6 +20,7 @@ type AdminUser struct {
 	Status        int        `gorm:"not null;"json:"status" form:"status" `                                //
 	LastLoginTime time.Time  `json:"last_login_time" form:"last_login_time" `                              //
 	LastLoginIP   string     `gorm:"not null;type:varchar(30);comment:'最后一次登陆IP'"`
+	PartId        int        `gorm:"not null"json:"partid"` //部门分类
 }
 
 func (*AdminUser) TableName() string {

@@ -14,6 +14,7 @@ type Freight struct {
 	Areas     FreightAreasJson `gorm:"not null;type:json"json:"areas"`
 	Name      string           `gorm:"not null;"json:"name"`
 	PayType   int              `gorm:"not null;"json:"payType"`
+	PartId    int              `gorm:"not null"json:"partid"` //部门分类
 }
 
 func (*Freight) TableName() string {

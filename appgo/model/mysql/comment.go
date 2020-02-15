@@ -16,6 +16,7 @@ type Comment struct {
 	Score     int        `gorm:"not null"json:"score"`             // 评分，存储为int，前端做小数转换
 	Nickname  string     `gorm:"not null"json:"nickname"`          //
 	Avatar    string     `gorm:"not null;"json:"avatar" `          //
+	PartId    int        `gorm:"not null"json:"partid"`            //部门分类
 }
 
 func (*Comment) TableName() string {

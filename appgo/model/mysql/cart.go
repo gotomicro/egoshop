@@ -39,6 +39,8 @@ type Cart struct {
 	ComSpec         ComSkuSpecJson   `gorm:"-"json:"comSpec"`         // goods sku spec
 	ComWeight       float64          `gorm:"-"json:"comWeight"`       // goods sku weight
 	ComFreightAreas FreightAreasJson `gorm:"-"json:"comFreightAreas"` // freight areas
+
+	PartId int `gorm:"not null"json:"partid"` //部门分类
 }
 
 func (*Cart) TableName() string {
