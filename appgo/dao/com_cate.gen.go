@@ -149,3 +149,14 @@ func (g *comCate) ListPage(c *gin.Context, conds mysql.Conds, reqList *trans.Req
 	db.Order(reqList.Sort).Offset((reqList.Current - 1) * reqList.PageSize).Limit(reqList.PageSize).Find(&respList)
 	return
 }
+
+// ListChild 通过父目录找到其下子目录
+func (g *comCate) ListChild(c *gin.Context, conds mysql.Conds, reqList *trans.ReqPage) (respList []mysql.ComCate) {
+
+	sql, binds := mysql.BuildQuery(conds)
+
+	db := g.db.Table("com_cate").Where(sql, binds...)
+	respList = make([]mysql.ComCate, 0)
+	db.Order(reqList.Sort).Find(&respList)
+	return
+}

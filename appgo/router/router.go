@@ -18,6 +18,7 @@ import (
 	"github.com/goecology/egoshop/appgo/router/api/apicom"
 	"github.com/goecology/egoshop/appgo/router/api/buy"
 	"github.com/goecology/egoshop/appgo/router/api/cart"
+	"github.com/goecology/egoshop/appgo/router/api/cate"
 	"github.com/goecology/egoshop/appgo/router/api/comment"
 	"github.com/goecology/egoshop/appgo/router/api/order"
 	"github.com/goecology/egoshop/appgo/router/api/signin"
@@ -30,21 +31,21 @@ import (
 func InitRouter() *gin.Engine {
 	r := mus.Gin
 
-	if command.Mode == "all" || command.Mode=="api" {
+	if command.Mode == "all" || command.Mode == "api" {
 		apiGrp(r) // 小程序api路由组
 	}
-	if command.Mode == "all" || command.Mode=="admin" {
+	if command.Mode == "all" || command.Mode == "admin" {
 		adminGrp(r) // 后台admin路由组
 	}
 
-	r.StaticFile("/",viper.GetString("app.adminant.html"))
+	r.StaticFile("/", viper.GetString("app.adminant.html"))
 	// todo gin is sb
 	r.NoRoute(func(c *gin.Context) {
 		c.File(viper.GetString("app.adminant.html"))
 	})
-	r.Static("/public/",viper.GetString("app.adminant.public"))
-	r.Static("/static/",viper.GetString("app.adminant.static"))
-	r.Static("/"+viper.GetString("app.osspic"),viper.GetString("app.osspic"))
+	r.Static("/public/", viper.GetString("app.adminant.public"))
+	r.Static("/static/", viper.GetString("app.adminant.static"))
+	r.Static("/"+viper.GetString("app.osspic"), viper.GetString("app.osspic"))
 	return r
 }
 
@@ -71,7 +72,6 @@ func apiGrp(r *gin.Engine) {
 		noAuthCommentGrp.GET("/list", comment.List)
 		noAuthCommentGrp.GET("/listTop3", comment.ListTop3)
 	}
-
 
 	apiGrp.Use(mdw.WechatAccessMustLogin())
 
@@ -152,9 +152,21 @@ func apiGrp(r *gin.Engine) {
 			apiUsersGrp.GET("/stats", apiuser.Stats)                              // 获取用户基本信息
 
 		}
+
+		// 分类
+		cateGrp := apiGrp.Group("/cate")
+		{
+			/* req的参数
+			type ReqList struct {
+				CateId    int  `json:"cateid"`
+				CateChild bool `json:"catechild"` //是否获取子类
+			}
+			*/
+			cateGrp.POST("/find", cate.List) // 购买商品
+			//payGrp.POST("/rebuy", buy.RePay)         // 继续购买
+		}
 	}
 }
-
 
 func adminGrp(r *gin.Engine) {
 	adGrp := r.Group("/admin", mus.Session)
