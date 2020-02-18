@@ -24,9 +24,9 @@ func InitAccessToken(logger *logger.Client, db *gorm.DB) *accessToken {
 }
 
 // Create 新增一条记
-func (g *accessToken) Create(c *gin.Context, db *gorm.DB, data *mysql.AccessToken) (err error) {
+func (g *accessToken) Create(c *gin.Context, data *mysql.AccessToken) (err error) {
 	data.CreateTime = time.Now().Unix()
-	if err = db.Create(data).Error; err != nil {
+	if err = g.db.Create(data).Error; err != nil {
 		g.logger.Error("create accessToken create error", zap.Error(err))
 		return
 	}
@@ -34,10 +34,10 @@ func (g *accessToken) Create(c *gin.Context, db *gorm.DB, data *mysql.AccessToke
 }
 
 // UpdateX Update的扩展方法，根据Cond更新一条或多条记录
-func (g *accessToken) UpdateX(c *gin.Context, db *gorm.DB, conds mysql.Conds, ups mysql.Ups) (err error) {
+func (g *accessToken) UpdateX(c *gin.Context, conds mysql.Conds, ups mysql.Ups) (err error) {
 
 	sql, binds := mysql.BuildQuery(conds)
-	if err = db.Table("access_token").Where(sql, binds...).Updates(ups).Error; err != nil {
+	if err = g.db.Table("access_token").Where(sql, binds...).Updates(ups).Error; err != nil {
 		g.logger.Error("access_token update error", zap.Error(err))
 		return
 	}
@@ -45,10 +45,10 @@ func (g *accessToken) UpdateX(c *gin.Context, db *gorm.DB, conds mysql.Conds, up
 }
 
 // DeleteX Delete的扩展方法，根据Cond删除一条或多条记录。如果有delete_time则软删除，否则硬删除。
-func (g *accessToken) DeleteX(c *gin.Context, db *gorm.DB, conds mysql.Conds) (err error) {
+func (g *accessToken) DeleteX(c *gin.Context, conds mysql.Conds) (err error) {
 	sql, binds := mysql.BuildQuery(conds)
 
-	if err = db.Table("access_token").Where(sql, binds...).Delete(&mysql.AccessToken{}).Error; err != nil {
+	if err = g.db.Table("access_token").Where(sql, binds...).Delete(&mysql.AccessToken{}).Error; err != nil {
 		g.logger.Error("access_token delete error", zap.Error(err))
 		return
 	}

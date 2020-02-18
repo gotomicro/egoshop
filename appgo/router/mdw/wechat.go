@@ -2,9 +2,10 @@ package mdw
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/goecology/egoshop/appgo/pkg/mus"
-	"github.com/goecology/egoshop/appgo/dao"
+
 	"github.com/goecology/egoshop/appgo/model/mysql"
+	"github.com/goecology/egoshop/appgo/pkg/mus"
+	"github.com/goecology/egoshop/appgo/token"
 )
 
 var DefaultWechatUid = "github.com/goecology/egoshop/wechatuid"
@@ -14,7 +15,7 @@ var DefaultWechatUsername = "github.com/goecology/egoshop/wechatUsername"
 func WechatAccessMustLogin() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		accessToken := c.GetHeader("Access-Token")
-		if !dao.AccessToken.CheckAccessToken(accessToken) {
+		if !token.GetAccessor().CheckAccessToken(c, accessToken) {
 			c.JSON(200, gin.H{
 				"code": 401,
 				"msg":  "auth token error",
@@ -23,7 +24,7 @@ func WechatAccessMustLogin() gin.HandlerFunc {
 			return
 		}
 
-		userInfo, err := dao.AccessToken.DecodeAccessToken(accessToken)
+		userInfo, err := token.GetAccessor().DecodeAccessToken(accessToken)
 		if err != nil {
 			c.JSON(200, gin.H{
 				"code": 401,
@@ -50,12 +51,12 @@ func WechatAccessMustLogin() gin.HandlerFunc {
 func WechatAccessLogin() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		accessToken := c.GetHeader("Access-Token")
-		if !dao.AccessToken.CheckAccessToken(accessToken) {
+		if !token.GetAccessor().CheckAccessToken(c, accessToken) {
 			c.Next()
 			return
 		}
 
-		userInfo, err := dao.AccessToken.DecodeAccessToken(accessToken)
+		userInfo, err := token.GetAccessor().DecodeAccessToken(accessToken)
 		if err != nil {
 			c.Next()
 			return

@@ -7,6 +7,8 @@ import (
 	"github.com/goecology/egoshop/appgo/model/mysql"
 	"github.com/goecology/egoshop/appgo/pkg/base"
 	"github.com/goecology/egoshop/appgo/pkg/code"
+	"github.com/goecology/egoshop/appgo/token"
+
 	"time"
 )
 
@@ -109,7 +111,7 @@ func Login(c *gin.Context) {
 	}
 
 	// 4.创建token
-	respToken, err := dao.AccessToken.CreateAccessToken(c, user.Id, time.Now().Unix())
+	respToken, err := token.GetAccessor().CreateAccessToken(c, user.Id, time.Now().Unix())
 	if err != nil {
 		base.JSONErr(c, code.LoginWechatErr5, err)
 		return
