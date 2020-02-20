@@ -2,3 +2,4 @@ build
 tool/gencode/gencode
 .idea
 appgo/egoshop
+appgo/leveldb
