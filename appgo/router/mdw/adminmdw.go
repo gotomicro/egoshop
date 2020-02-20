@@ -2,10 +2,11 @@ package mdw
 
 import (
 	"encoding/gob"
+	"net/http"
+
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"github.com/goecology/egoshop/appgo/model/mysql"
-	"net/http"
 )
 
 const SessionDefaultKey = "goecology/mdw/session"

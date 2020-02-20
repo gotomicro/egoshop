@@ -35,10 +35,7 @@
         enabledRecovery = true
         enabledLogger = true
         enabledMetric = true
-    [muses.session.gin]
-        mode = "memory"
-        name = "mysession"
-        keypairs = "secret"
+
     [muses.logger.system]
         debug = true
         level = "debug"
@@ -61,11 +58,15 @@
         maxOpenConns = 30
         maxIdleConns = 10
         connMaxLifetime = "300s"
+    [muses.session.gin]
+        mode = "memory" # memory, redis
+        name = "mysession"
+        keypairs = "secret"
     [muses.mixcache.egoshop]
-        mode = "leveldb"
+        mode = "leveldb" # memory, redis, leveldb
         levelDbPath = "leveldb"
     [muses.oss.egoshop]
-        mode = "file"
+        mode = "file"   # oss, file
         isDeleteSrcPath = true
         cdnName = "http://127.0.0.1:9001/osspic/"
         fileBucket = "osspic"

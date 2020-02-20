@@ -8,11 +8,12 @@ import (
 	"encoding/base64"
 	"encoding/hex"
 	"fmt"
-	"github.com/pkg/errors"
 	"io"
 	mt "math/rand"
 	"strconv"
 	"strings"
+
+	"github.com/pkg/errors"
 )
 
 const (

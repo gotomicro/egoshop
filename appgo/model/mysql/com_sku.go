@@ -23,7 +23,6 @@ type ComSku struct {
 	Title        string         `gorm:"not null;"json:"title"`         // 商品名称（+规格名称）
 	SaleNum      int            `gorm:"not null;"json:"saleNum"`       // 销售数量
 	GroupSaleNum int            `gorm:"not null;"json:"groupSaleNum"`  // 拼团销量
-	PartId       int            `gorm:"not null"json:"partid"`         //部门分类
 	//SpecValueSign string         `gorm:"not null;"json:"specValueSign"` // 规格值标识
 	//SpecSign      string         `gorm:"not null;"json:"specSign"`      // 规格标识
 }

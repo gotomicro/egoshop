@@ -5,10 +5,11 @@ import (
 	"crypto/rand"
 	"encoding/hex"
 	"fmt"
-	"github.com/goecology/muses/pkg/system"
-	"github.com/spf13/viper"
 	"strings"
 	"time"
+
+	"github.com/goecology/muses/pkg/system"
+	"github.com/spf13/viper"
 )
 
 const (
@@ -16,7 +17,6 @@ const (
 	StoreLocal string = "local"
 	StoreOss   string = "oss"
 )
-
 
 func FilterImgArr(imgs []string) (urlArr []string) {
 	urlArr = make([]string, 0)

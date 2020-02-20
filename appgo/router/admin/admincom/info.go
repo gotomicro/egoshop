@@ -78,15 +78,15 @@ func One(c *gin.Context) {
 	resp, _ := dao.ComSku.List(c, mysql.Conds{
 		"com_id": comInfo.Id,
 	})
-	respCids,_ := dao.ComRelateCate.List(c,mysql.Conds{"com_id":comInfo.Id})
+	respCids, _ := dao.ComRelateCate.List(c, mysql.Conds{"com_id": comInfo.Id})
 	var cids []int
-	for _,value :=  range respCids {
-		cids = append(cids,value.Cid)
+	for _, value := range respCids {
+		cids = append(cids, value.Cid)
 	}
 
 	comInfo.SkuList = resp
 	comInfo.Cids = cids
-	comInfo.Gallery = mus.Oss.ShowImgArr(comInfo.Gallery,"")
+	comInfo.Gallery = mus.Oss.ShowImgArr(comInfo.Gallery, "")
 	base.JSON(c, code.MsgOk, comInfo)
 }
 

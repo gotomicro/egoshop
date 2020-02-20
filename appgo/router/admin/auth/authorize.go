@@ -1,14 +1,15 @@
 package auth
 
 import (
+	"regexp"
+
 	"github.com/gin-gonic/gin"
-	"github.com/goecology/egoshop/appgo/router/mdw"
 	"github.com/goecology/egoshop/appgo/dao"
 	"github.com/goecology/egoshop/appgo/model/mysql"
 	"github.com/goecology/egoshop/appgo/model/trans"
 	"github.com/goecology/egoshop/appgo/pkg/base"
 	"github.com/goecology/egoshop/appgo/pkg/code"
-	"regexp"
+	"github.com/goecology/egoshop/appgo/router/mdw"
 )
 
 var emailRgx = regexp.MustCompile(`^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-z]{2,4}$`)

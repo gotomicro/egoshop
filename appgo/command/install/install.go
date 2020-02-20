@@ -2,13 +2,14 @@ package install
 
 import (
 	"fmt"
+	"time"
+
 	"github.com/goecology/egoshop/appgo/model/mysql"
 	"github.com/goecology/egoshop/appgo/pkg/util"
 	"github.com/goecology/muses/pkg/cache/mixcache"
 	mmysql "github.com/goecology/muses/pkg/database/mysql"
 	"github.com/goecology/muses/pkg/oss"
 	"github.com/jinzhu/gorm"
-	"time"
 )
 
 var Models []interface{}

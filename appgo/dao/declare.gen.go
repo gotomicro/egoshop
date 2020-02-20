@@ -1,34 +1,34 @@
 package dao
 
 var (
-	PointLimit    *pointLimit
-	OrderExtend   *orderExtend
-	ComSpec       *comSpec
-	UserOpen      *userOpen
-	AccessToken   *accessToken
-	Order         *order
+	ComSpecValue  *comSpecValue
 	Com           *com
-	Address       *address
-	Attachment    *attachment
-	Image         *image
 	User          *user
+	Signin        *signin
+	Order         *order
+	Address       *address
+	Freight       *freight
+	ComSpec       *comSpec
+	PointLimit    *pointLimit
 	ComSku        *comSku
 	Banner        *banner
+	OrderLog      *orderLog
 	OrderGoods    *orderGoods
+	ComImage      *comImage
 	AdminUser     *adminUser
-	Comment       *comment
-	ComRelateCate *comRelateCate
-	ComCate       *comCate
-	UserGoods     *userGoods
-	Cart          *cart
+	OrderExtend   *orderExtend
 	AddressType   *addressType
+	Attachment    *attachment
+	Image         *image
+	PointLog      *pointLog
+	ComRelateCate *comRelateCate
 	SigninLog     *signinLog
 	ComStore      *comStore
-	OrderLog      *orderLog
+	Comment       *comment
+	UserGoods     *userGoods
+	Cart          *cart
+	AccessToken   *accessToken
+	UserOpen      *userOpen
+	ComCate       *comCate
 	OrderPay      *orderPay
-	Freight       *freight
-	ComSpecValue  *comSpecValue
-	Signin        *signin
-	PointLog      *pointLog
-	ComImage      *comImage
 )

@@ -1,8 +1,9 @@
 package user
 
 import (
-	"github.com/goecology/egoshop/appgo/service"
 	"time"
+
+	"github.com/goecology/egoshop/appgo/service"
 
 	"github.com/gin-gonic/gin"
 	"github.com/goecology/egoshop/appgo/dao"

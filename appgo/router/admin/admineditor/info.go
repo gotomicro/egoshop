@@ -2,20 +2,21 @@ package admineditor
 
 import (
 	"encoding/base64"
+	"io/ioutil"
+	"os"
+	"path/filepath"
+	"strings"
+
 	"github.com/gin-gonic/gin"
-	"github.com/goecology/egoshop/appgo/pkg/conf"
-	"github.com/goecology/egoshop/appgo/pkg/mus"
-	"github.com/goecology/egoshop/appgo/router/mdw"
 	"github.com/goecology/egoshop/appgo/dao"
 	"github.com/goecology/egoshop/appgo/model/constx"
 	"github.com/goecology/egoshop/appgo/model/mysql"
 	"github.com/goecology/egoshop/appgo/pkg/base"
 	"github.com/goecology/egoshop/appgo/pkg/code"
+	"github.com/goecology/egoshop/appgo/pkg/conf"
 	"github.com/goecology/egoshop/appgo/pkg/imagex"
-	"io/ioutil"
-	"os"
-	"path/filepath"
-	"strings"
+	"github.com/goecology/egoshop/appgo/pkg/mus"
+	"github.com/goecology/egoshop/appgo/router/mdw"
 )
 
 //获取或更新文档内容.

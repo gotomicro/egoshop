@@ -2,9 +2,9 @@ package mdw
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/goecology/egoshop/appgo/pkg/mus"
 	"github.com/goecology/egoshop/appgo/dao"
 	"github.com/goecology/egoshop/appgo/model/mysql"
+	"github.com/goecology/egoshop/appgo/pkg/mus"
 )
 
 var DefaultWechatUid = "github.com/goecology/egoshop/wechatuid"

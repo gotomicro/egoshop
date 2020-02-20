@@ -1,8 +1,9 @@
 package mysql
 
 import (
-	"github.com/goecology/muses/pkg/database/mysql"
 	"time"
+
+	"github.com/goecology/muses/pkg/database/mysql"
 )
 
 type Address struct {

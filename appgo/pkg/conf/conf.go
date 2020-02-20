@@ -10,8 +10,8 @@ var (
 
 type config struct {
 	// 应用配置
-	App app
-	Oss oss
+	App   app
+	Oss   oss
 	Image image
 }
 

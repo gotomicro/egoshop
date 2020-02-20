@@ -19,13 +19,11 @@ var ConfigPath string
 var InstallMode string
 var ClearMode bool
 
-
 func init() {
 	InstallCmd.PersistentFlags().StringVarP(&ConfigPath, "conf", "c", "conf/conf.toml", "conf path")
 	InstallCmd.PersistentFlags().StringVarP(&InstallMode, "mode", "m", "all", "mode type")
-	InstallCmd.PersistentFlags().BoolVar(&ClearMode, "clear",  false, "dangerous mode")
+	InstallCmd.PersistentFlags().BoolVar(&ClearMode, "clear", false, "dangerous mode")
 }
-
 
 func installCmd(cmd *cobra.Command, args []string) {
 	app := muses.Container(
@@ -36,13 +34,13 @@ func installCmd(cmd *cobra.Command, args []string) {
 	app.SetCfg(ConfigPath)
 	app.PreRun(func() error {
 		var err error
-		if InstallMode == "all" || InstallMode  == "create" {
+		if InstallMode == "all" || InstallMode == "create" {
 			err = install.Create(ClearMode)
 			if err != nil {
 				return err
 			}
 		}
-		if InstallMode == "all" || InstallMode  == "mock" {
+		if InstallMode == "all" || InstallMode == "mock" {
 			err = install.Mock()
 			if err != nil {
 				return err

@@ -3,9 +3,10 @@ package base
 import (
 	"encoding/json"
 	"fmt"
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	"github.com/goecology/egoshop/appgo/pkg/code"
-	"net/http"
 )
 
 type RespList struct {

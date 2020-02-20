@@ -2,6 +2,7 @@ package dao
 
 import (
 	"time"
+
 	"github.com/gin-gonic/gin"
 	"github.com/goecology/egoshop/appgo/model/mysql"
 	"github.com/goecology/egoshop/appgo/model/trans"

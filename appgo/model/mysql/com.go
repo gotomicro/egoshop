@@ -43,7 +43,6 @@ type Com struct {
 	SkuList      []ComSku        `gorm:"-"json:"skuList"`                   // 库存列表信息,冗余字段
 	SpecList     ComSpecListJson `gorm:"not null;type:json"json:"specList"` // 规格参数
 	Cids         ComCidsJson     `gorm:"not null;type:json"json:"cids"`
-	PartId       int             `gorm:"not null"json:"partid"` //部门分类
 }
 
 func (*Com) TableName() string {

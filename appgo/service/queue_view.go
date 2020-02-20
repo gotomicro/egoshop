@@ -1,8 +1,8 @@
 package service
 
 import (
-	"github.com/goecology/egoshop/appgo/pkg/mus"
 	"github.com/goecology/egoshop/appgo/model/mysql"
+	"github.com/goecology/egoshop/appgo/pkg/mus"
 	"github.com/jinzhu/gorm"
 )
 

@@ -2,15 +2,16 @@ package signin
 
 import (
 	"errors"
-	"github.com/goecology/egoshop/appgo/service"
 	"time"
 
+	"github.com/goecology/egoshop/appgo/service"
+
 	"github.com/gin-gonic/gin"
-	"github.com/goecology/egoshop/appgo/pkg/mus"
-	"github.com/goecology/egoshop/appgo/router/mdw"
 	"github.com/goecology/egoshop/appgo/model/mysql"
 	"github.com/goecology/egoshop/appgo/pkg/base"
 	"github.com/goecology/egoshop/appgo/pkg/code"
+	"github.com/goecology/egoshop/appgo/pkg/mus"
+	"github.com/goecology/egoshop/appgo/router/mdw"
 	"github.com/jinzhu/gorm"
 )
 

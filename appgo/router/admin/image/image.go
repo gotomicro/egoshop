@@ -3,20 +3,21 @@ package image
 import (
 	"encoding/base64"
 	"errors"
-	"github.com/goecology/egoshop/appgo/model/constx"
 	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
+
 	"github.com/gin-gonic/gin"
-	"github.com/goecology/egoshop/appgo/pkg/conf"
-	"github.com/goecology/egoshop/appgo/pkg/mus"
-	"github.com/goecology/egoshop/appgo/router/mdw"
 	"github.com/goecology/egoshop/appgo/dao"
+	"github.com/goecology/egoshop/appgo/model/constx"
 	"github.com/goecology/egoshop/appgo/model/mysql"
 	"github.com/goecology/egoshop/appgo/pkg/base"
 	"github.com/goecology/egoshop/appgo/pkg/code"
+	"github.com/goecology/egoshop/appgo/pkg/conf"
 	"github.com/goecology/egoshop/appgo/pkg/imagex"
+	"github.com/goecology/egoshop/appgo/pkg/mus"
+	"github.com/goecology/egoshop/appgo/router/mdw"
 	"go.uber.org/zap"
 )
 
