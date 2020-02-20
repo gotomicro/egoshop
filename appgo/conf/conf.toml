@@ -17,7 +17,7 @@
         callbackAPI = "https://xxxx/api/v1/wechat/callbackdev/payed_notify"
 [muses]
     [muses.app]
-        name = "goecology"
+        name = "i2eco"
         env = "dev"
         version = "1.0"
         file = "local"

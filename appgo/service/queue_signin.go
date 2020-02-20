@@ -3,12 +3,12 @@ package service
 import (
 	"time"
 
-	"github.com/goecology/egoshop/appgo/model/constx"
+	"github.com/i2eco/egoshop/appgo/model/constx"
 
 	"errors"
 
-	"github.com/goecology/egoshop/appgo/model/mysql"
-	"github.com/goecology/egoshop/appgo/pkg/mus"
+	"github.com/i2eco/egoshop/appgo/model/mysql"
+	"github.com/i2eco/egoshop/appgo/pkg/mus"
 	"github.com/jinzhu/gorm"
 )
 

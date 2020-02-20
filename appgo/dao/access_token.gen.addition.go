@@ -6,11 +6,11 @@ import (
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
-	"github.com/goecology/egoshop/appgo/model/mysql"
+	"github.com/i2eco/egoshop/appgo/model/mysql"
 	"go.uber.org/zap"
 )
 
-const AccessTokenIss = "github.com/goecology/egoshop"
+const AccessTokenIss = "github.com/i2eco/egoshop"
 const AccessTokenExpireInterval = 7 * 24 * 60 * 60
 const AccessTokenKey = "ecologysK#xo"
 

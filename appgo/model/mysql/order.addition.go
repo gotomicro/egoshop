@@ -3,7 +3,7 @@ package mysql
 import (
 	"strings"
 
-	"github.com/goecology/egoshop/appgo/model/constx"
+	"github.com/i2eco/egoshop/appgo/model/constx"
 )
 
 /**

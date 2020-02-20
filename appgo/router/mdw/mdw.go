@@ -4,8 +4,8 @@ import (
 	"errors"
 
 	"github.com/gin-gonic/gin"
-	"github.com/goecology/egoshop/appgo/model/common"
-	"github.com/goecology/egoshop/appgo/model/constx"
+	"github.com/i2eco/egoshop/appgo/model/common"
+	"github.com/i2eco/egoshop/appgo/model/constx"
 )
 
 // 验证商品

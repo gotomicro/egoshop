@@ -3,9 +3,9 @@ package dao
 import (
 	"errors"
 
-	"github.com/goecology/egoshop/appgo/model/common"
-	"github.com/goecology/egoshop/appgo/model/constx"
-	"github.com/goecology/egoshop/appgo/model/mysql"
+	"github.com/i2eco/egoshop/appgo/model/common"
+	"github.com/i2eco/egoshop/appgo/model/constx"
+	"github.com/i2eco/egoshop/appgo/model/mysql"
 	"github.com/jinzhu/gorm"
 )
 

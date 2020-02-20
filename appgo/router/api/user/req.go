@@ -1,6 +1,6 @@
 package user
 
-import "github.com/goecology/egoshop/appgo/model/trans"
+import "github.com/i2eco/egoshop/appgo/model/trans"
 
 type ReqList struct {
 	Tid    int `form:"tid"`

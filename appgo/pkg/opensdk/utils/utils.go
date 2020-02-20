@@ -20,7 +20,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/goecology/egoshop/appgo/pkg/opensdk/common"
+	"github.com/i2eco/egoshop/appgo/pkg/opensdk/common"
 )
 
 // NewRequest 请求包装

@@ -2,8 +2,8 @@ package banner
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/goecology/egoshop/appgo/dao"
-	"github.com/goecology/egoshop/appgo/model/mysql"
+	"github.com/i2eco/egoshop/appgo/dao"
+	"github.com/i2eco/egoshop/appgo/model/mysql"
 )
 
 func Get(c *gin.Context) {

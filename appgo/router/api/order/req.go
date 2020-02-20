@@ -1,6 +1,6 @@
 package order
 
-import "github.com/goecology/egoshop/appgo/model/trans"
+import "github.com/i2eco/egoshop/appgo/model/trans"
 
 type ReqInfo struct {
 	Id int `form:"id"`

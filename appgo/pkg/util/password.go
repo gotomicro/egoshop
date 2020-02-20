@@ -20,7 +20,7 @@ const (
 	saltSize           = 16
 	delmiter           = "$"
 	stretchingPassword = 500
-	saltLocalSecret    = "goecologylahgdofih"
+	saltLocalSecret    = "i2ecolahgdofih"
 )
 
 // 加密密码

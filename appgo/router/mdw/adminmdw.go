@@ -6,10 +6,10 @@ import (
 
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
-	"github.com/goecology/egoshop/appgo/model/mysql"
+	"github.com/i2eco/egoshop/appgo/model/mysql"
 )
 
-const SessionDefaultKey = "goecology/mdw/session"
+const SessionDefaultKey = "i2eco/mdw/session"
 const ContextUser = "mdw/member"
 
 func init() {

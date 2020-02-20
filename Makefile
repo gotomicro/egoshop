@@ -1,7 +1,7 @@
-MUSES_SYSTEM:=github.com/goecology/muses/pkg/system
+MUSES_SYSTEM:=github.com/i2eco/muses/pkg/system
 APPNAME:=egoshop
-APPPATH:=$(GOPATH)/src/github.com/goecology/egoshop
-APPOUT:=$(APPPATH)/build/$(APPNAME)
+APPPATH:=$(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
+APPOUT:=$(APPPATH)/appgo/$(APPNAME)
 
 # 执行wechat
 wechat:
@@ -14,30 +14,19 @@ ant:
 # 执行go指令
 go:
 	@cd $(APPPATH)/appgo && $(APPPATH)/tool/build.sh $(APPNAME) $(APPOUT) $(MUSES_SYSTEM)
-	@cp $(APPPATH)/appgo/conf $(APPPATH)/build/ -R
-	@cd $(APPPATH)/build && $(APPOUT) start --conf=conf/conf.toml
+	@cd $(APPPATH)/appgo && $(APPOUT) start --conf=conf/conf.toml
 
 
 install:
 	@cd $(APPPATH)/appgo && $(APPPATH)/tool/build.sh $(APPNAME) $(APPOUT) $(MUSES_SYSTEM)
-	@cp $(APPPATH)/appgo/conf $(APPPATH)/build/ -R
-	@cp $(APPPATH)/appgo/mockdata $(APPPATH)/build/ -R
-	@cd $(APPPATH)/build && $(APPOUT) install --conf=conf/conf.toml
+	@cd $(APPPATH)/appgo && $(APPOUT) install --conf=conf/conf.toml
+
+install.create:
+	@cd $(APPPATH)/appgo && $(APPPATH)/tool/build.sh $(APPNAME) $(APPOUT) $(MUSES_SYSTEM)
+	@cd $(APPPATH)/appgo && $(APPOUT) install --conf=conf/conf.toml --mode=create
 
 install.clear:
 	@cd $(APPPATH)/appgo && $(APPPATH)/tool/build.sh $(APPNAME) $(APPOUT) $(MUSES_SYSTEM)
-	@cp $(APPPATH)/appgo/conf $(APPPATH)/build/ -R
-	@cp $(APPPATH)/appgo/mockdata $(APPPATH)/build/ -R
-	@cd $(APPPATH)/build && $(APPOUT) install --conf=conf/conf.toml --clear=true
+	@cd $(APPPATH)/appgo && $(APPOUT) install --conf=conf/conf.toml --clear=true
 
-all:
-	@rm -r $(APPPATH)/build
-	@cd $(APPPATH)/appgo && $(APPPATH)/tool/build.sh $(APPNAME) $(APPOUT) $(MUSES_SYSTEM)
-	@cp $(APPPATH)/appgo/conf $(APPPATH)/build/ -R
-	@cd $(APPPATH)/adminant && npm run build
-	@cp $(APPPATH)/adminant/dist $(APPPATH)/build/ -R
-	@mv $(APPPATH)/build/dist $(APPPATH)/build/adminant
-	@cd $(APPPATH)/appuni && npm run build:mp-weixin
-	@cp $(APPPATH)/appuni/dist/build/mp-weixin $(APPPATH)/build/ -R
-	@tar zxvf build.tar.gz build
 

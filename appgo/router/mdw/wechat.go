@@ -2,13 +2,13 @@ package mdw
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/goecology/egoshop/appgo/dao"
-	"github.com/goecology/egoshop/appgo/model/mysql"
-	"github.com/goecology/egoshop/appgo/pkg/mus"
+	"github.com/i2eco/egoshop/appgo/dao"
+	"github.com/i2eco/egoshop/appgo/model/mysql"
+	"github.com/i2eco/egoshop/appgo/pkg/mus"
 )
 
-var DefaultWechatUid = "github.com/goecology/egoshop/wechatuid"
-var DefaultWechatUsername = "github.com/goecology/egoshop/wechatUsername"
+var DefaultWechatUid = "github.com/i2eco/egoshop/wechatuid"
+var DefaultWechatUsername = "github.com/i2eco/egoshop/wechatUsername"
 
 // WechatAccess 微信登录校验中间件
 func WechatAccessMustLogin() gin.HandlerFunc {

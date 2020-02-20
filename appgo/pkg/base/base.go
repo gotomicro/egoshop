@@ -6,7 +6,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/goecology/egoshop/appgo/pkg/code"
+	"github.com/i2eco/egoshop/appgo/pkg/code"
 )
 
 type RespList struct {

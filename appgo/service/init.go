@@ -1,7 +1,7 @@
 package service
 
 import (
-	"github.com/goecology/egoshop/appgo/dao"
+	"github.com/i2eco/egoshop/appgo/dao"
 )
 
 var (

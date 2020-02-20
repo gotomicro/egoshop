@@ -1,11 +1,11 @@
 package command
 
 import (
-	"github.com/goecology/egoshop/appgo/command/install"
-	"github.com/goecology/muses"
-	"github.com/goecology/muses/pkg/cache/mixcache"
-	mmysql "github.com/goecology/muses/pkg/database/mysql"
-	"github.com/goecology/muses/pkg/oss"
+	"github.com/i2eco/egoshop/appgo/command/install"
+	"github.com/i2eco/muses"
+	"github.com/i2eco/muses/pkg/cache/mixcache"
+	mmysql "github.com/i2eco/muses/pkg/database/mysql"
+	"github.com/i2eco/muses/pkg/oss"
 	"github.com/spf13/cobra"
 )
 
@@ -32,7 +32,7 @@ func installCmd(cmd *cobra.Command, args []string) {
 		mixcache.Register,
 	)
 	app.SetCfg(ConfigPath)
-	app.PreRun(func() error {
+	app.SetPostRun(func() error {
 		var err error
 		if InstallMode == "all" || InstallMode == "create" {
 			err = install.Create(ClearMode)

@@ -1,7 +1,7 @@
 package admincomspec
 
 import (
-	"github.com/goecology/egoshop/appgo/model/mysql"
+	"github.com/i2eco/egoshop/appgo/model/mysql"
 )
 
 type RespComSpecList struct {

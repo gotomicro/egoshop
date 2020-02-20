@@ -1,6 +1,6 @@
 ## 1 概述
 
-[EGoShop](https://github.com/goecology/egoshop) 是GO语言实现的商城项目。
+[EGoShop](https://github.com/i2eco/egoshop) 是GO语言实现的商城项目。
 
 目前业界大部分商城项目都是PHP或者Java的商城项目，但很少有比较完善的Go的商城项目。
 
@@ -10,10 +10,10 @@ EgoShop详细介绍请看[文档](http://doc.egoshop.questionfans.com/ecology/)
 
 ## 2 介绍
 
-[EGoShop](https://github.com/goecology/egoshop)使用了GO，Vue，React技术，Gin，Uniapp，Ant Deign Pro框架。使得我们的系统更加易于部署，开发和维护。
+[EGoShop](https://github.com/i2eco/egoshop)使用了GO，Vue，React技术，Gin，Uniapp，Ant Deign Pro框架。使得我们的系统更加易于部署，开发和维护。
 
 ### 2.1 演示环境
-* [项目地址](https://github.com/goecology/egoshop)
+* [项目地址](https://github.com/i2eco/egoshop)
 * [文档地址](http://doc.egoshop.questionfans.com/)
 * 小程序地址
   ![logo](./docs/img/wechatmini_small.jpg)
@@ -67,7 +67,7 @@ EgoShop详细介绍请看[文档](http://doc.egoshop.questionfans.com/ecology/)
 ### 3.1 二进制包安装
 
 ```
-wget https://github.com/goecology/egoshop0.1.0.tar.gz(todo，还没发布release包)
+wget https://github.com/i2eco/egoshop0.1.0.tar.gz(todo，还没发布release包)
 tar xvf egoshop0.1.0.tar.gz
 ./egoshop install
 ./egoshop start
@@ -102,4 +102,4 @@ make all # 全部编译
 
 ## 8 LICENSE
 
-[Apache License 2.0](https://github.com/goecology/egoshop/blob/master/LICENSE)
+[Apache License 2.0](https://github.com/i2eco/egoshop/blob/master/LICENSE)

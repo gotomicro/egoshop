@@ -6,10 +6,10 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/goecology/egoshop/appgo/model/common"
-	"github.com/goecology/egoshop/appgo/model/constx"
-	"github.com/goecology/egoshop/appgo/model/mysql"
-	"github.com/goecology/egoshop/appgo/model/trans"
+	"github.com/i2eco/egoshop/appgo/model/common"
+	"github.com/i2eco/egoshop/appgo/model/constx"
+	"github.com/i2eco/egoshop/appgo/model/mysql"
+	"github.com/i2eco/egoshop/appgo/model/trans"
 	"github.com/jinzhu/gorm"
 	"github.com/thoas/go-funk"
 )

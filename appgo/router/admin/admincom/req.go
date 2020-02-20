@@ -1,8 +1,8 @@
 package admincom
 
 import (
-	"github.com/goecology/egoshop/appgo/model/mysql"
-	"github.com/goecology/egoshop/appgo/model/trans"
+	"github.com/i2eco/egoshop/appgo/model/mysql"
+	"github.com/i2eco/egoshop/appgo/model/trans"
 )
 
 type ReqList struct {

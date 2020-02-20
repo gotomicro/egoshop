@@ -4,9 +4,9 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/goecology/egoshop/appgo/model/mysql"
-	"github.com/goecology/egoshop/appgo/model/trans"
-	"github.com/goecology/egoshop/appgo/pkg/util"
+	"github.com/i2eco/egoshop/appgo/model/mysql"
+	"github.com/i2eco/egoshop/appgo/model/trans"
+	"github.com/i2eco/egoshop/appgo/pkg/util"
 	"github.com/thoas/go-funk"
 	"go.uber.org/zap"
 )

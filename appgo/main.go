@@ -1,19 +1,19 @@
 package main
 
 import (
-	"github.com/goecology/egoshop/appgo/command"
-	"github.com/goecology/egoshop/appgo/pkg/conf"
-	"github.com/goecology/egoshop/appgo/pkg/mus"
-	"github.com/goecology/egoshop/appgo/router"
-	"github.com/goecology/egoshop/appgo/service"
-	"github.com/goecology/muses"
-	"github.com/goecology/muses/pkg/cache/mixcache"
-	"github.com/goecology/muses/pkg/cmd"
-	"github.com/goecology/muses/pkg/database/mysql"
-	"github.com/goecology/muses/pkg/oss"
-	musgin "github.com/goecology/muses/pkg/server/gin"
-	"github.com/goecology/muses/pkg/server/stat"
-	"github.com/goecology/muses/pkg/session/ginsession"
+	"github.com/i2eco/egoshop/appgo/command"
+	"github.com/i2eco/egoshop/appgo/pkg/conf"
+	"github.com/i2eco/egoshop/appgo/pkg/mus"
+	"github.com/i2eco/egoshop/appgo/router"
+	"github.com/i2eco/egoshop/appgo/service"
+	"github.com/i2eco/muses"
+	"github.com/i2eco/muses/pkg/cache/mixcache"
+	"github.com/i2eco/muses/pkg/cmd"
+	"github.com/i2eco/muses/pkg/database/mysql"
+	"github.com/i2eco/muses/pkg/oss"
+	musgin "github.com/i2eco/muses/pkg/server/gin"
+	"github.com/i2eco/muses/pkg/server/stat"
+	"github.com/i2eco/muses/pkg/session/ginsession"
 	"github.com/spf13/cobra"
 )
 
@@ -34,7 +34,7 @@ func main() {
 		cobraCommand.PersistentFlags().StringVar(&command.Mode, "mode", "all", "设置启动模式")
 	})
 	app.SetGinRouter(router.InitRouter)
-	app.PreRun(conf.Init, mus.Init, service.Init)
+	app.SetPostRun(conf.Init, mus.Init, service.Init)
 	err := app.Run()
 	if err != nil {
 		panic(err)

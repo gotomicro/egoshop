@@ -2,29 +2,29 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/goecology/egoshop/appgo/command"
-	"github.com/goecology/egoshop/appgo/pkg/mus"
-	"github.com/goecology/egoshop/appgo/router/admin/admincom"
-	"github.com/goecology/egoshop/appgo/router/admin/admincomcate"
-	"github.com/goecology/egoshop/appgo/router/admin/admincomment"
-	"github.com/goecology/egoshop/appgo/router/admin/admincomspec"
-	"github.com/goecology/egoshop/appgo/router/admin/admineditor"
-	"github.com/goecology/egoshop/appgo/router/admin/adminfreight"
-	"github.com/goecology/egoshop/appgo/router/admin/adminuser"
-	"github.com/goecology/egoshop/appgo/router/admin/adminusergood"
-	"github.com/goecology/egoshop/appgo/router/admin/auth"
-	"github.com/goecology/egoshop/appgo/router/admin/image"
-	"github.com/goecology/egoshop/appgo/router/api/address"
-	"github.com/goecology/egoshop/appgo/router/api/apicom"
-	"github.com/goecology/egoshop/appgo/router/api/buy"
-	"github.com/goecology/egoshop/appgo/router/api/cart"
-	"github.com/goecology/egoshop/appgo/router/api/cate"
-	"github.com/goecology/egoshop/appgo/router/api/comment"
-	"github.com/goecology/egoshop/appgo/router/api/order"
-	"github.com/goecology/egoshop/appgo/router/api/signin"
-	apiuser "github.com/goecology/egoshop/appgo/router/api/user"
-	"github.com/goecology/egoshop/appgo/router/api/wechat"
-	"github.com/goecology/egoshop/appgo/router/mdw"
+	"github.com/i2eco/egoshop/appgo/command"
+	"github.com/i2eco/egoshop/appgo/pkg/mus"
+	"github.com/i2eco/egoshop/appgo/router/admin/admincom"
+	"github.com/i2eco/egoshop/appgo/router/admin/admincomcate"
+	"github.com/i2eco/egoshop/appgo/router/admin/admincomment"
+	"github.com/i2eco/egoshop/appgo/router/admin/admincomspec"
+	"github.com/i2eco/egoshop/appgo/router/admin/admineditor"
+	"github.com/i2eco/egoshop/appgo/router/admin/adminfreight"
+	"github.com/i2eco/egoshop/appgo/router/admin/adminuser"
+	"github.com/i2eco/egoshop/appgo/router/admin/adminusergood"
+	"github.com/i2eco/egoshop/appgo/router/admin/auth"
+	"github.com/i2eco/egoshop/appgo/router/admin/image"
+	"github.com/i2eco/egoshop/appgo/router/api/address"
+	"github.com/i2eco/egoshop/appgo/router/api/apicom"
+	"github.com/i2eco/egoshop/appgo/router/api/buy"
+	"github.com/i2eco/egoshop/appgo/router/api/cart"
+	//"github.com/i2eco/egoshop/appgo/router/api/cate"
+	"github.com/i2eco/egoshop/appgo/router/api/comment"
+	"github.com/i2eco/egoshop/appgo/router/api/order"
+	"github.com/i2eco/egoshop/appgo/router/api/signin"
+	apiuser "github.com/i2eco/egoshop/appgo/router/api/user"
+	"github.com/i2eco/egoshop/appgo/router/api/wechat"
+	"github.com/i2eco/egoshop/appgo/router/mdw"
 	"github.com/spf13/viper"
 )
 
@@ -154,17 +154,17 @@ func apiGrp(r *gin.Engine) {
 		}
 
 		// 分类
-		cateGrp := apiGrp.Group("/cate")
-		{
-			/* req的参数
-			type ReqList struct {
-				CateId    int  `json:"cateid"`
-				CateChild bool `json:"catechild"` //是否获取子类
-			}
-			*/
-			cateGrp.POST("/find", cate.List) // 购买商品
-			//payGrp.POST("/rebuy", buy.RePay)         // 继续购买
-		}
+		//cateGrp := apiGrp.Group("/cate")
+		//{
+		//	/* req的参数
+		//	type ReqList struct {
+		//		CateId    int  `json:"cateid"`
+		//		CateChild bool `json:"catechild"` //是否获取子类
+		//	}
+		//	*/
+		//	cateGrp.POST("/find", cate.List) // 购买商品
+		//	//payGrp.POST("/rebuy", buy.RePay)         // 继续购买
+		//}
 	}
 }
 

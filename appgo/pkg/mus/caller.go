@@ -2,14 +2,14 @@ package mus
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/goecology/egoshop/appgo/pkg/conf"
-	"github.com/goecology/egoshop/appgo/pkg/opensdk/wechatauth"
-	"github.com/goecology/muses/pkg/cache/mixcache"
-	"github.com/goecology/muses/pkg/database/mysql"
-	"github.com/goecology/muses/pkg/logger"
-	"github.com/goecology/muses/pkg/oss"
-	musgin "github.com/goecology/muses/pkg/server/gin"
-	"github.com/goecology/muses/pkg/session/ginsession"
+	"github.com/i2eco/egoshop/appgo/pkg/conf"
+	"github.com/i2eco/egoshop/appgo/pkg/opensdk/wechatauth"
+	"github.com/i2eco/muses/pkg/cache/mixcache"
+	"github.com/i2eco/muses/pkg/database/mysql"
+	"github.com/i2eco/muses/pkg/logger"
+	"github.com/i2eco/muses/pkg/oss"
+	musgin "github.com/i2eco/muses/pkg/server/gin"
+	"github.com/i2eco/muses/pkg/session/ginsession"
 	"github.com/jinzhu/gorm"
 	"github.com/milkbobo/gopay/client"
 )

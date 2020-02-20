@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/goecology/egoshop/appgo/model/mysql"
-	"github.com/goecology/egoshop/appgo/pkg/util"
-	"github.com/goecology/muses/pkg/cache/mixcache"
-	mmysql "github.com/goecology/muses/pkg/database/mysql"
-	"github.com/goecology/muses/pkg/oss"
+	"github.com/i2eco/egoshop/appgo/model/mysql"
+	"github.com/i2eco/egoshop/appgo/pkg/util"
+	"github.com/i2eco/muses/pkg/cache/mixcache"
+	mmysql "github.com/i2eco/muses/pkg/database/mysql"
+	"github.com/i2eco/muses/pkg/oss"
 	"github.com/jinzhu/gorm"
 )
 
