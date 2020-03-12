@@ -3,3 +3,4 @@ tool/gencode/gencode
 .idea
 appgo/egoshop
 appgo/leveldb
+go.sum
